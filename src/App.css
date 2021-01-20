@@ -52,9 +52,6 @@ html {
     padding: 1vmax 1vmax 1vmax 1vmax;
     font-size: 2vmax;
   }
-  /* .project-toggle-button{
-    padding: 6px 15px 6px 15px !important;
-  } */
 }
 
 /* @media only screen and (max-width: 439px) {
@@ -446,6 +443,10 @@ html {
   /* prevent animation glitch at the end of animation on chrome for react png library */
   transform: rotateX(0deg) !important;
 }
+
+/* .back-card:hover{
+  border-right: 1px solid black;
+} */
 
 /* .project-card-button:hover{
   background-color: teal !important;

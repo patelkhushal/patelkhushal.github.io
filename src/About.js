@@ -12,12 +12,13 @@ import { BsMusicNoteList } from "react-icons/bs";
 import { GiRingedPlanet, GiPencilBrush, GiCampfire } from "react-icons/gi";
 
 // import Fade from "react-reveal/Fade";
-import { Fade } from "react-awesome-reveal";
+import { Fade, Slide } from "react-awesome-reveal";
+// import Slide from "react-reveal/Fade";
 
-import ProfilePicture from './assets/images/ProfilePicture.jpg';
-import MachineLearningImage from './assets/images/MachineLearning.svg';
-import DataAnalyticsImage from './assets/images/DataAnalytics.svg';
-import BlockChainImage from './assets/images/BlockChain.svg';
+import ProfilePicture from "./assets/images/ProfilePicture.jpg";
+import MachineLearningImage from "./assets/images/MachineLearning.svg";
+import DataAnalyticsImage from "./assets/images/DataAnalytics.svg";
+import BlockChainImage from "./assets/images/BlockChain.svg";
 
 export default function About() {
   const breakLgScreenFlipCards = useMediaQuery({
@@ -77,8 +78,8 @@ export default function About() {
         </Row>
         <Row>
           <Col md="auto" style={{ textAlign: "center" }}>
-            <Fade direction="left" triggerOnce={true}>
-              {/* <Fade direction="left" delay={stopAnimateWidth || stopAnimateHeight ? 0 : 175}> */}
+            <Slide direction="left" triggerOnce={true}>
+              {/* <Slide direction="left" delay={stopAnimateWidth || stopAnimateHeight ? 0 : 175}> */}
               <div>
                 <img
                   src={ProfilePicture}
@@ -94,11 +95,11 @@ export default function About() {
                 <h5>Hello, I'm Khushal Patel</h5>
                 <p>Full Stack / Software Dev / Data Analyst</p>
               </div>
-            </Fade>
+            </Slide>
           </Col>
           <Col>
-            <Fade direction="right" triggerOnce={true}>
-              {/* <Fade direction="right" delay={stopAnimateWidth || stopAnimateHeight ? 0 : 1100}> */}
+            <Slide direction="right" triggerOnce={true}>
+              {/* <Slide direction="right" delay={stopAnimateWidth || stopAnimateHeight ? 0 : 1100}> */}
               <h5 style={{ paddingBottom: "7px", textAlign: "center" }}>
                 Who Am I?
               </h5>
@@ -106,15 +107,16 @@ export default function About() {
                 I am a Software Developer based in Toronto, CA. I have serious
                 passion for learning new technologies and applying them to solve
                 complex world problems. Having 3+ years of professional
-                experience, I was fortunate enough to work on interesting problems
-                wearing multiple hats while working as Data Analyst, Full Stack,
-                Web/Mobile Applications Dev and QA Automation Engineer.
+                experience, I was fortunate enough to work on interesting
+                problems wearing multiple hats while working as Data Analyst,
+                Full Stack, Web/Mobile Applications Dev and QA Automation
+                Engineer.
               </p>
               <br />
-            </Fade>
+            </Slide>
             <Container style={{ textAlign: "center" }}>
-              <Fade direction="right" triggerOnce={true}>
-                {/* <Fade direction="right" delay={stopAnimateWidth || stopAnimateHeight ? 0 : 1800}> */}
+              <Slide direction="right" triggerOnce={true}>
+                {/* <Slide direction="right" delay={stopAnimateWidth || stopAnimateHeight ? 0 : 1800}> */}
                 <Row
                   className="justify-content-center"
                   style={{ paddingBottom: "15px" }}
@@ -160,12 +162,13 @@ export default function About() {
                     </p>
                   </Col>
                 </Row>
-              </Fade>
+              </Slide>
             </Container>
           </Col>
         </Row>
-        <Fade direction="up" triggerOnce={true}>
-          {/* <Fade direction="down" delay={(stopAnimateWidth || stopAnimateHeight) ? 0 : 2200}> */}
+        {/* <Slide direction="up" triggerOnce={true}> */}
+        <Slide direction="up" triggerOnce={true}>
+          {/* <Slide direction="down" delay={(stopAnimateWidth || stopAnimateHeight) ? 0 : 2200}> */}
           <Row
             className="justify-content-center"
             style={{
@@ -255,7 +258,8 @@ export default function About() {
               );
             })}
           </Row>
-        </Fade>
+        </Slide>
+        {/* </Slide> */}
       </Container>
     </Element>
   );

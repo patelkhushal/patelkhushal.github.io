@@ -22,17 +22,17 @@ import uuid from "react-uuid";
 
 // import { AwesomeButton } from "react-awesome-button";
 // import "react-awesome-button/dist/styles.css";
-import { ImSearch } from "react-icons/im"
+import { ImSearch } from "react-icons/im";
 
-import TwitterUserProfiler from './assets/images/TwitterUserProfiler.png';
-import LectureHallFinder from './assets/images/LectureHallFinder.png';
-import HotelReviewsAnalyzer from './assets/images/HotelReviewsAnalyzer.jpg';
-import CityWeatherAnalytics from './assets/images/CityWeatherAnalytics.jpg';
-import StayHomeRewards from './assets/images/StayHomeRewards.jpg';
-import BitcoinTestnetUtility from './assets/images/BitcoinTestnetUtility.png';
-import ImageEditor from './assets/images/ImageEditor.png';
-import LibraryEPurchases from './assets/images/LibraryEPurchases.jpeg'
-import PortfolioWebsite from './assets/images/PortfolioWebsite.png'
+import TwitterUserProfiler from "./assets/images/TwitterUserProfiler.png";
+import LectureHallFinder from "./assets/images/LectureHallFinder.png";
+import HotelReviewsAnalyzer from "./assets/images/HotelReviewsAnalyzer.jpg";
+import CityWeatherAnalytics from "./assets/images/CityWeatherAnalytics.jpg";
+import StayHomeRewards from "./assets/images/StayHomeRewards.jpg";
+import BitcoinTestnetUtility from "./assets/images/BitcoinTestnetUtility.png";
+import ImageEditor from "./assets/images/ImageEditor.png";
+import LibraryEPurchases from "./assets/images/LibraryEPurchases.jpeg";
+import PortfolioWebsite from "./assets/images/PortfolioWebsite.png";
 
 export default function Projects() {
   const fullStackAndWebProjects = [
@@ -70,7 +70,7 @@ export default function Projects() {
       techStack: ["React", "NodeJS"],
       imageUrl: PortfolioWebsite,
       themeColor: "rgb(74 79 74)",
-    }
+    },
   ];
   const dataAnalyticsProjects = [
     {
@@ -96,7 +96,8 @@ export default function Projects() {
       miniTechStack: ["Python", "Tableau", "NLP"],
       techStack: ["Python", "Apache Spark/pyspark", "NLP", "Tableau"],
       imageUrl: HotelReviewsAnalyzer,
-      themeColor: "rgb(142 52 10)",
+      // themeColor: "rgb(199 101 15)",
+      themeColor: "rgb(191 97 14)",
       // color: "rgb(54 73 6)",
       // backgroundColor: "rgb(249 249 249)",
       // style: { backgroundColor: "rgb(54 73 6)", color: "white" },
@@ -176,6 +177,7 @@ export default function Projects() {
 
   const [projectType, setProjectType] = useState("All");
   const [projectCards, setProjectCards] = useState(allProjects);
+  const [borderRight, setborderRight] = useState(false)
   const isExtraSmallScreenWidth = useMediaQuery({
     query: "(max-width: 439px)",
   });
@@ -246,7 +248,7 @@ export default function Projects() {
         </Row>
         <Row
           className="justify-content-center"
-          style={{ paddingTop: "25px", paddingBottom: "20px" }}
+          style={{ paddingTop: "20px", paddingBottom: "20px" }}
         >
           <ToggleButtonGroup
             value={projectType}
@@ -264,7 +266,12 @@ export default function Projects() {
                     value={projectTypeToggleButton}
                     key={index}
                     className="project-toggle-button"
-                    style={{ padding: isExtraSmallScreenWidth ? "6px 15px 6px 15px" : "10px 25px 10px 25px", fontSize: isExtraSmallScreenWidth ? "3.5vw" : "0.9rem" }}
+                    style={{
+                      padding: isExtraSmallScreenWidth
+                        ? "6px 15px 6px 15px"
+                        : "10px 25px 10px 25px",
+                      fontSize: isExtraSmallScreenWidth ? "3.5vw" : "0.92rem",
+                    }}
                   >
                     {projectTypeToggleButton}
                   </ToggleButton>
@@ -285,7 +292,7 @@ export default function Projects() {
             cascade={true}
             damping={0.15}
             triggerOnce={true}
-            style={{ display: "inline-block", padding: "5px 15px 5px 15px" }}
+            style={{ display: "inline-block", padding: "7px 18px 7px 18px" }}
           >
             {projectCards.map((projectCard, index) => {
               return (
@@ -293,21 +300,21 @@ export default function Projects() {
                   key={uuid()}
                   style={{
                     // backgroundColor: "white",
-                    backgroundColor: projectCard.themeColor,
+                    // backgroundColor: projectCard.themeColor,
                     color: "white",
                     // width: "25rem",
-                    width: isExtraSmallScreenWidth ? "90vw" : "24.5rem",
-                    maxHeight: "290px",
+                    width: isExtraSmallScreenWidth ? "90vw" : "24.59rem",
+                    maxHeight: "285px",
                   }}
                   className="project-card"
                   front={
-                    <div>
+                    <div style={{ backgroundColor: projectCard.themeColor }}>
                       <img
                         src={projectCard.imageUrl}
                         alt={projectCard.name}
                         style={{
                           width: "100%",
-                          height: "235px",
+                          height: "233px",
                           objectFit: "cover",
                           objectPosition:
                             projectCard.name === "Stay Home Rewards"
@@ -316,9 +323,9 @@ export default function Projects() {
                         }}
                       ></img>
                       <div
-                        align="center"
                         style={{
-                          padding: "0.8rem 0rem 0.8rem 0rem",
+                          textAlign: "center",
+                          padding: "0.75rem 0rem 0.2rem 0rem",
                           fontWeight: "500",
                         }}
                       >
@@ -328,6 +335,7 @@ export default function Projects() {
                   }
                   back={
                     <div
+                      className="justify-content-center back-card"
                       style={{
                         display: "flex",
                         alignContent: "center",
@@ -335,6 +343,9 @@ export default function Projects() {
                         flexDirection: "column",
                         width: "100%",
                         backgroundColor: "rgb(249 249 249)",
+                        border: isExtraSmallScreenWidth ? "" : "1px solid " + projectCard.themeColor,
+                        // borderRight: isExtraSmallScreenWidth ? "1px solid " + projectCard.themeColor : "1px solid " + projectCard.themeColor,
+                        // borderRight: "1px solid black",
                         // backgroundColor: projectCard.themeColor,
                         // backgroundImage: "url(" + projectCard.imageUrl + ")",
                         // backgroundSize: "cover",
@@ -344,12 +355,11 @@ export default function Projects() {
                         // objectFit: "cover",
                         // objectPosition: "0 0",
                       }}
-                      className="justify-content-center"
                     >
                       <p
                         style={{
                           color: projectCard.themeColor,
-                          fontSize: "larger",
+                          fontSize: "large",
                           fontWeight: "550",
                         }}
                       >
@@ -360,7 +370,7 @@ export default function Projects() {
                           // color:"white",
                           color: projectCard.themeColor,
                           fontWeight: "500",
-                          fontSize: "1.1rem",
+                          fontSize: "1rem",
                         }}
                       >
                         {projectCard.miniTechStack.map((tech, index) => {
@@ -379,7 +389,7 @@ export default function Projects() {
                       {/* <ProjectButton name={projectCard.name} themeColor={projectCard.themeColor}></ProjectButton> */}
                       <Button
                         className="project-card-button"
-                        size="large"
+                        // size="large"
                         // size="lg"
                         // variant="info"
                         style={{
@@ -390,8 +400,8 @@ export default function Projects() {
                           borderRadius: "5%",
                           border: "2px solid " + projectCard.themeColor,
                           fontFamily: "monospace",
-                          paddingLeft: "30px",
-                          paddingRight: "30px",
+                          paddingLeft: "25px",
+                          paddingRight: "25px",
                           // transform: "rotateX(0deg)"
                           // marginTop: "45px"
                         }}
@@ -442,7 +452,7 @@ export default function Projects() {
                   }
                   // maxWidth={416}
                   // maxWidth={isExtraSmallScreenWidth ? "100%" : 416}
-                  animationSpeed={700}
+                  animationSpeed={600}
                   height={300}
                   // margin={9}
                 />

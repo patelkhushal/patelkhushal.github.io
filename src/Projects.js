@@ -177,7 +177,7 @@ export default function Projects() {
 
   const [projectType, setProjectType] = useState("All");
   const [projectCards, setProjectCards] = useState(allProjects);
-  const [borderRight, setborderRight] = useState(false)
+  const [cardBorder, setCardBorder] = useState(false);
   const isExtraSmallScreenWidth = useMediaQuery({
     query: "(max-width: 439px)",
   });
@@ -292,7 +292,7 @@ export default function Projects() {
             cascade={true}
             damping={0.15}
             triggerOnce={true}
-            style={{ display: "inline-block", padding: "7px 18px 7px 18px" }}
+            style={{ display: "block", padding: "7px 18px 7px 18px" }}
           >
             {projectCards.map((projectCard, index) => {
               return (
@@ -306,9 +306,16 @@ export default function Projects() {
                     width: isExtraSmallScreenWidth ? "90vw" : "24.59rem",
                     maxHeight: "285px",
                   }}
-                  className="project-card"
                   front={
-                    <div style={{ backgroundColor: projectCard.themeColor }}>
+                    <div
+                      style={{
+                        backgroundColor: projectCard.themeColor,
+                        width: "inherit",
+                        // border: cardBorder ? "1px solid black" : "",
+                      }}
+                      // onMouseEnter={() => setCardBorder(true)}
+                      // onMouseLeave={() => setCardBorder(false)}
+                    >
                       <img
                         src={projectCard.imageUrl}
                         alt={projectCard.name}
@@ -335,15 +342,18 @@ export default function Projects() {
                   }
                   back={
                     <div
-                      className="justify-content-center back-card"
+                      className="justify-content-center"
                       style={{
                         display: "flex",
                         alignContent: "center",
                         alignItems: "center",
                         flexDirection: "column",
-                        width: "100%",
+                        width: "inherit",
                         backgroundColor: "rgb(249 249 249)",
-                        border: isExtraSmallScreenWidth ? "" : "1px solid " + projectCard.themeColor,
+                        // border: "1px solid " + projectCard.themeColor,
+                        border: isExtraSmallScreenWidth
+                          ? ""
+                          : "1px solid " + projectCard.themeColor,
                         // borderRight: isExtraSmallScreenWidth ? "1px solid " + projectCard.themeColor : "1px solid " + projectCard.themeColor,
                         // borderRight: "1px solid black",
                         // backgroundColor: projectCard.themeColor,
@@ -370,7 +380,7 @@ export default function Projects() {
                           // color:"white",
                           color: projectCard.themeColor,
                           fontWeight: "500",
-                          fontSize: "1rem",
+                          fontSize: "1.05rem",
                         }}
                       >
                         {projectCard.miniTechStack.map((tech, index) => {
@@ -383,8 +393,8 @@ export default function Projects() {
                           );
                         })}
                       </p>
-                      <br />
-                      <br />
+                      {/* <br />
+                      <br /> */}
                       {/* <div style={{marginTop: "45px"}}> */}
                       {/* <ProjectButton name={projectCard.name} themeColor={projectCard.themeColor}></ProjectButton> */}
                       <Button
@@ -400,6 +410,7 @@ export default function Projects() {
                           borderRadius: "5%",
                           border: "2px solid " + projectCard.themeColor,
                           fontFamily: "monospace",
+                          marginTop: "25px",
                           paddingLeft: "25px",
                           paddingRight: "25px",
                           // transform: "rotateX(0deg)"

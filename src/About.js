@@ -167,7 +167,7 @@ export default function About() {
           </Col>
         </Row>
         {/* <Slide direction="up" triggerOnce={true}> */}
-        <Slide direction="up" triggerOnce={true}>
+        {/* <Slide direction="up" triggerOnce={true}> */}
           {/* <Slide direction="down" delay={(stopAnimateWidth || stopAnimateHeight) ? 0 : 2200}> */}
           <Row
             className="justify-content-center"
@@ -258,7 +258,7 @@ export default function About() {
               );
             })}
           </Row>
-        </Slide>
+        {/* </Slide> */}
         {/* </Slide> */}
       </Container>
     </Element>

@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5cefe106.chunk.css",
+    "main.js": "/static/js/main.52142684.chunk.js",
+    "main.js.map": "/static/js/main.52142684.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.476bbc98.js",
+    "runtime-main.js.map": "/static/js/runtime-main.476bbc98.js.map",
+    "static/css/2.a9b6c0ab.chunk.css": "/static/css/2.a9b6c0ab.chunk.css",
+    "static/js/2.b96e8a76.chunk.js": "/static/js/2.b96e8a76.chunk.js",
+    "static/js/2.b96e8a76.chunk.js.map": "/static/js/2.b96e8a76.chunk.js.map",
+    "static/js/3.7370d89f.chunk.js": "/static/js/3.7370d89f.chunk.js",
+    "static/js/3.7370d89f.chunk.js.map": "/static/js/3.7370d89f.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.a9b6c0ab.chunk.css.map": "/static/css/2.a9b6c0ab.chunk.css.map",
+    "static/css/main.5cefe106.chunk.css.map": "/static/css/main.5cefe106.chunk.css.map",
+    "static/js/2.b96e8a76.chunk.js.LICENSE.txt": "/static/js/2.b96e8a76.chunk.js.LICENSE.txt",
+    "static/media/BitcoinTestnetUtility.3ffa9b66.png": "/static/media/BitcoinTestnetUtility.3ffa9b66.png",
+    "static/media/BlockChain.221008b9.svg": "/static/media/BlockChain.221008b9.svg",
+    "static/media/CityWeatherAnalytics.25a6d091.jpg": "/static/media/CityWeatherAnalytics.25a6d091.jpg",
+    "static/media/DataAnalytics.07614297.svg": "/static/media/DataAnalytics.07614297.svg",
+    "static/media/HomeBackgroundImage.059f49b0.jpg": "/static/media/HomeBackgroundImage.059f49b0.jpg",
+    "static/media/HotelReviewsAnalyzer.22ef1ada.jpg": "/static/media/HotelReviewsAnalyzer.22ef1ada.jpg",
+    "static/media/IBMLogo.9f94b8d9.jpg": "/static/media/IBMLogo.9f94b8d9.jpg",
+    "static/media/ImageEditor.2fb724e3.png": "/static/media/ImageEditor.2fb724e3.png",
+    "static/media/LassondeLogo.11e42801.png": "/static/media/LassondeLogo.11e42801.png",
+    "static/media/LectureHallFinder.77ee1f73.png": "/static/media/LectureHallFinder.77ee1f73.png",
+    "static/media/LibraryEPurchases.a9b7fc2e.jpeg": "/static/media/LibraryEPurchases.a9b7fc2e.jpeg",
+    "static/media/MachineLearning.df32dd30.svg": "/static/media/MachineLearning.df32dd30.svg",
+    "static/media/PortfolioWebsite.b1046fb1.png": "/static/media/PortfolioWebsite.b1046fb1.png",
+    "static/media/ProfilePicture.f78133db.jpg": "/static/media/ProfilePicture.f78133db.jpg",
+    "static/media/StayHomeRewards.a01c788c.jpg": "/static/media/StayHomeRewards.a01c788c.jpg",
+    "static/media/TutorDoctorLogo.a81949b1.png": "/static/media/TutorDoctorLogo.a81949b1.png",
+    "static/media/TwitterUserProfiler.71776572.png": "/static/media/TwitterUserProfiler.71776572.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.476bbc98.js",
+    "static/css/2.a9b6c0ab.chunk.css",
+    "static/js/2.b96e8a76.chunk.js",
+    "static/css/main.5cefe106.chunk.css",
+    "static/js/main.52142684.chunk.js"
+  ]
+}

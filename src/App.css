@@ -5,6 +5,10 @@ html {
   /* rgb(112, 51, 7) */
 }
 
+p {
+  margin: 0 auto !important;
+}
+
 /* ---------------------------------------------------- SMALLER DEVICES CSS ---------------------------------------------------- */
 @media only screen and (max-width: 991px) {
   .nav-item .icon-container {
@@ -22,6 +26,19 @@ html {
     -webkit-transform: scale(1) !important; /* Safari 3-8 */
     transform: scale(1) !important;
   }
+  #type-greeting-container {
+    font-size: 3.5vmax !important;
+  }
+  #more-button {
+    /* padding: 1vmax 1vmax 1vmax 1vmax;
+    font-size: 2vmax; */
+    padding: 1.2vmax 2vmax;
+    font-size: 2.2vmax;
+  }
+}
+
+/* Put the sidebar and bottom contact bar on home component on top and bottom center */
+@media only screen and (max-width: 660px) {
   #side-nav {
     /* display: none !important; */
     flex-direction: row !important;
@@ -44,13 +61,6 @@ html {
   }
   .side-nav-icon-container {
     font-size: 2.5vmax !important;
-  }
-  #type-greeting-container {
-    font-size: 3.5vmax !important;
-  }
-  #more-button {
-    padding: 1vmax 1vmax 1vmax 1vmax;
-    font-size: 2vmax;
   }
 }
 
@@ -76,7 +86,8 @@ html {
   transform: scale3d(1.05, 1.05, 1.05); */
   -ms-transform: scale(1.05);
   -webkit-transform: scale(1.05);
-  transform: scale(1.05); 
+  transform: scale(1.05);
+  /* transform: rotateX(0deg) !important; */
 }
 
 .with-navbar-component {
@@ -279,7 +290,7 @@ html {
   font-family: monospace;
   /* padding-left: 20px; */
   /* width: auto; */
-  /* padding-bottom: 18px; */
+  padding-bottom: 25px;
   /* padding-top: 15px; */
   position: absolute;
   color: white;
@@ -288,7 +299,7 @@ html {
   align-items: center;
   justify-content: center;
   font-weight: 500;
-  font-size: 42px;
+  font-size: 40px;
   /* max-height: 35vh; */
   /* max-height: 100%; */
   z-index: 2;
@@ -307,9 +318,10 @@ html {
   background-color: rgba(43, 137, 226, 0.7);
   color: white;
   border-color: rgb(43, 127, 206);
-  /* padding: 0.6vmax 1vmax 0.6vmax 1vmax;
-  font-size: 1.2vmax; */
-  /* font-size: 1.3vmax; */
+  /* padding: 2px 2px */
+  /* padding: 1.2vmax 2vmax;
+  font-size: 2.2vmax; */
+  /* font-size: 1.2vmax; */
 }
 
 #more-button:focus {
@@ -357,11 +369,11 @@ html {
 }
 
 /* -------------------------------------------------------- About Component CSS -------------------------------------------------------- */
-.flip-card-col{
+.flip-card-col {
   padding-top: 10px;
 }
 
-.flip-card{
+.flip-card {
   font-size: 1.85em;
   /* font-size: 1.5vmax; */
   display: flex;
@@ -379,7 +391,7 @@ html {
   /* overflow: scroll; */
 }
 
-.flip-card-xs{
+.flip-card-xs {
   font-size: 1em;
   /* font-size: 1.5vmax; */
   display: flex;
@@ -397,11 +409,11 @@ html {
 }
 
 /* -------------------------------------------------------- Timeline Component CSS -------------------------------------------------------- */
-.timeline-logo-container{
+.timeline-logo-container {
   display: flex;
   align-items: center;
 }
-.timeline-logo{
+.timeline-logo {
   height: auto;
   width: 100%;
   max-height: 100px;
@@ -409,37 +421,37 @@ html {
 }
 
 /* -------------------------------------------------------- Projects Component CSS -------------------------------------------------------- */
-.project-toggle-button{
+.project-toggle-button {
   color: rgba(36, 100, 151, 0.842) !important;
   /* padding: 10px 25px 10px 25px !important */
   /* transition: background-color 0.2s; */
 }
 
-.project-toggle-button:focus{
+.project-toggle-button:focus {
   outline: 0;
 }
 
-.Mui-selected{
+.Mui-selected {
   color: white !important;
   background-color: rgb(36, 100, 151) !important;
 }
 
-.Mui-selected:hover{
+.Mui-selected:hover {
   color: white;
   background-color: rgb(36, 100, 151) !important;
 }
-.project-card{
+.project-card {
   border-radius: 4% !important;
   border: 0px !important;
 }
 
-.project-card-button:focus{
+.project-card-button:focus {
   outline: none !important;
   box-shadow: 0 0 0 0 !important;
   /* box-shadow: 0 0 0 0 !important; */
 }
 
-.HoverCardClass_Visible__srLqj{
+.HoverCardClass_Visible__srLqj {
   /* prevent animation glitch at the end of animation on chrome for react png library */
   transform: rotateX(0deg) !important;
 }

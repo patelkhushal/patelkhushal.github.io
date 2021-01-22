@@ -88,11 +88,11 @@ export default function Home() {
           <Container id="type-greeting-container">
             <Bounce top delay={900}>
               <div style={{ textAlign: "center" }}>
-                <p style={{padding:"8px"}}>
+                <p style={{padding:"10px"}}>
                   Hello! My name is{" "}
                   <span id="greeting-name">Khushal Patel</span>
                 </p>
-                <p style={{padding:"8px"}}>I'm a Software Dev :)</p>
+                <p style={{padding:"15px"}}>I'm a Software Dev :)</p>
               </div>
             </Bounce>
             <Fade left delay={1900}>

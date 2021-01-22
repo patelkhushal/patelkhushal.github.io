@@ -77,7 +77,7 @@ export default function About() {
           <h4 style={{ paddingBottom: "23px" }}>About Me</h4>
         </Row>
         <Row>
-          <Col md="auto" style={{ textAlign: "center" }}>
+          <Col md="auto" style={{ textAlign: "center",  paddingBottom:"15px"}}>
             <Slide direction="left" triggerOnce={true}>
               {/* <Slide direction="left" delay={stopAnimateWidth || stopAnimateHeight ? 0 : 175}> */}
               <div>
@@ -112,14 +112,14 @@ export default function About() {
                 Full Stack, Web/Mobile Applications Dev and QA Automation
                 Engineer.
               </p>
-              <br />
+              {/* <br /> */}
             </Slide>
-            <Container style={{ textAlign: "center" }}>
+            <div style={{ textAlign: "center" }}>
               <Slide direction="right" triggerOnce={true}>
                 {/* <Slide direction="right" delay={stopAnimateWidth || stopAnimateHeight ? 0 : 1800}> */}
                 <Row
                   className="justify-content-center"
-                  style={{ paddingBottom: "15px" }}
+                  style={{ paddingBottom: "10px", paddingTop:"35px" }}
                 >
                   <p>
                     Recently, I have been intrigued by these technologies and
@@ -127,27 +127,27 @@ export default function About() {
                   </p>
                 </Row>
                 <Row>
-                  <Col>
+                  <Col style={{paddingTop: "15px"}}>
                     <img
                       src={MachineLearningImage}
                       alt="ml"
-                      style={{ height: "100px", width: "100px", color: "teal" }}
+                      style={{ height: "100px", width: "100px", }}
                     ></img>
                     <p style={{ paddingTop: "7px", fontWeight: "500" }}>
                       Machine Learning
                     </p>
                   </Col>
-                  <Col>
+                  <Col style={{paddingTop: "15px"}}>
                     <img
                       src={DataAnalyticsImage}
                       alt="data-analytics"
-                      style={{ height: "100px", width: "100px" }}
+                      style={{ height: "100px", width: "100px", }}
                     ></img>
                     <p style={{ paddingTop: "7px", fontWeight: "500" }}>
                       Data Analytics
                     </p>
                   </Col>
-                  <Col>
+                  <Col style={{paddingTop: "15px"}}>
                     <img
                       src={BlockChainImage}
                       alt="blockchain"
@@ -163,21 +163,21 @@ export default function About() {
                   </Col>
                 </Row>
               </Slide>
-            </Container>
+            </div>
           </Col>
         </Row>
         {/* <Slide direction="up" triggerOnce={true}> */}
-        {/* <Slide direction="up" triggerOnce={true}> */}
+        <Slide direction="up" triggerOnce={true}>
           {/* <Slide direction="down" delay={(stopAnimateWidth || stopAnimateHeight) ? 0 : 2200}> */}
           <Row
             className="justify-content-center"
             style={{
-              paddingTop: "45px",
+              paddingTop: "20px",
               paddingBottom: "0px",
               textAlign: "center",
             }}
           >
-            <p>
+            <p style={{padding:"20px 0px 20px 0px"}}>
               <span style={{ fontSize: "1.3rem", fontWeight: "550" }}>
                 {" "}
                 Hobbies {"&"} Interests
@@ -258,7 +258,7 @@ export default function About() {
               );
             })}
           </Row>
-        {/* </Slide> */}
+        </Slide>
         {/* </Slide> */}
       </Container>
     </Element>

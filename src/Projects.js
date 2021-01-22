@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Element } from "react-scroll";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -25,14 +25,14 @@ import uuid from "react-uuid";
 import { ImSearch } from "react-icons/im";
 
 import TwitterUserProfiler from "./assets/images/TwitterUserProfiler.png";
-import LectureHallFinder from "./assets/images/LectureHallFinder.png";
+import LectureHallFinder from "./assets/images/LectureHallFinder.jpg";
 import HotelReviewsAnalyzer from "./assets/images/HotelReviewsAnalyzer.jpg";
 import CityWeatherAnalytics from "./assets/images/CityWeatherAnalytics.jpg";
 import StayHomeRewards from "./assets/images/StayHomeRewards.jpg";
-import BitcoinTestnetUtility from "./assets/images/BitcoinTestnetUtility.png";
-import ImageEditor from "./assets/images/ImageEditor.png";
+import BitcoinTestnetUtility from "./assets/images/BitcoinTestnetUtility.jpg";
+import ImageEditor from "./assets/images/ImageEditor.jpg";
 import LibraryEPurchases from "./assets/images/LibraryEPurchases.jpeg";
-import PortfolioWebsite from "./assets/images/PortfolioWebsite.png";
+import PortfolioWebsite from "./assets/images/PortfolioWebsite.jpg";
 
 export default function Projects() {
   const fullStackAndWebProjects = [
@@ -177,7 +177,8 @@ export default function Projects() {
 
   const [projectType, setProjectType] = useState("All");
   const [projectCards, setProjectCards] = useState(allProjects);
-  const [cardBorder, setCardBorder] = useState(false);
+  // const [cardBorder, setCardBorder] = useState(false);
+  const isMobile = useMobileDeviceCheck();
   const isExtraSmallScreenWidth = useMediaQuery({
     query: "(max-width: 439px)",
   });
@@ -289,10 +290,11 @@ export default function Projects() {
           // style={{backgroundColor: "gray"}}
         >
           <Zoom
-            cascade={true}
+            cascade={isMobile ? false : true}
             damping={0.15}
             triggerOnce={true}
             style={{ display: "block", padding: "7px 18px 7px 18px" }}
+            duration={700}
           >
             {projectCards.map((projectCard, index) => {
               return (
@@ -371,6 +373,7 @@ export default function Projects() {
                           color: projectCard.themeColor,
                           fontSize: "large",
                           fontWeight: "550",
+                          paddingBottom:"8px"
                         }}
                       >
                         {projectCard.name}
@@ -381,6 +384,7 @@ export default function Projects() {
                           color: projectCard.themeColor,
                           fontWeight: "500",
                           fontSize: "1.05rem",
+                          padding:"5px 0px 15px 0px"
                         }}
                       >
                         {projectCard.miniTechStack.map((tech, index) => {
@@ -410,7 +414,7 @@ export default function Projects() {
                           borderRadius: "5%",
                           border: "2px solid " + projectCard.themeColor,
                           fontFamily: "monospace",
-                          marginTop: "25px",
+                          marginTop: "30px",
                           paddingLeft: "25px",
                           paddingRight: "25px",
                           // transform: "rotateX(0deg)"
@@ -463,7 +467,7 @@ export default function Projects() {
                   }
                   // maxWidth={416}
                   // maxWidth={isExtraSmallScreenWidth ? "100%" : 416}
-                  animationSpeed={600}
+                  animationSpeed={700}
                   height={300}
                   // margin={9}
                 />
@@ -516,4 +520,28 @@ export default function Projects() {
       </Container>
     </Element>
   );
+}
+
+// Hook to detect mobile devices
+function useMobileDeviceCheck() {
+  const [isMobileDevice, setIsMobileDevice] = useState(false);
+
+  useEffect(() => {
+    // Handler to call on window resize
+    function handleResize() {
+      // Detect if current device is mobile
+      setIsMobileDevice(!!navigator.maxTouchPoints);
+    }
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Call handler right away so state gets updated with initial device type
+    handleResize();
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty array ensures that effect is only run on mount
+
+  return isMobileDevice;
 }

@@ -132,7 +132,7 @@ export default function Timeline() {
                       <Col xs={8} md={8} lg={8}>
                         {/* <h5>{timelineCard.header}</h5> */}
                         <div style={{fontSize: "large", fontWeight: "525"}}>{timelineCard.header}</div>
-                        <p style={{fontSize: "0.92rem"}}>{timelineCard.subHeader}</p>
+                        <p style={{fontSize: "0.92rem", padding:"10px 0 10px 0"}}>{timelineCard.subHeader}</p>
                       </Col>
                       <Col className="timeline-logo-container">
                         <img

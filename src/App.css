@@ -16,6 +16,7 @@ p {
   }
   .nav-item {
     height: 2.4rem !important;
+    /* padding: 0.1rem 1rem !important; */
   }
   .zoom {
     transition: transform 0s !important;
@@ -34,6 +35,20 @@ p {
     font-size: 2vmax; */
     padding: 1.2vmax 2vmax;
     font-size: 2.2vmax;
+  }
+}
+
+/* prevent navbar collapse drop down to fit the minimum possible height of the browser */
+@media only screen and (max-width: 991px) and (max-height: 287px){
+  .nav-item {
+    height: 2.27rem !important;
+  }
+}
+
+/* prevent side bar nav items on home to overflow with max width (1200px - max width) and min height */
+@media only screen and (min-width: 1200px) and (max-height: 268px){
+  .side-nav-item {
+    padding: 0.65vmax 1.5vmax !important;
   }
 }
 

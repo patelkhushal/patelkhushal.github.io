@@ -97,7 +97,8 @@ export default function Projects() {
       techStack: ["Python", "Apache Spark/pyspark", "NLP", "Tableau"],
       imageUrl: HotelReviewsAnalyzer,
       // themeColor: "rgb(199 101 15)",
-      themeColor: "rgb(191 97 14)",
+      // themeColor: "rgb(191 97 14)",
+      themeColor: "rgb(10 62 101)"
       // color: "rgb(54 73 6)",
       // backgroundColor: "rgb(249 249 249)",
       // style: { backgroundColor: "rgb(54 73 6)", color: "white" },
@@ -131,7 +132,7 @@ export default function Projects() {
       techStack: ["Java", "BlockCypher API", "BlockChain"],
       // style: { backgroundColor: "rgb(15 46 76)", color: "white" },
       imageUrl: BitcoinTestnetUtility,
-      themeColor: "rgb(17 72 125)",
+      themeColor: "rgb(37 37 39)",
       // color: "rgb(15 46 76)",
       // backgroundColor: "rgb(249 249 249)",
     },

@@ -107,6 +107,7 @@ export default function Timeline() {
       <Container>
         <h4 align="center">Timeline</h4>
         <br></br>
+        {/* do not animate vertical timeline on mobile/touch screen devices because there can be animation glitches with the navbar toggle icon  */}
         <VerticalTimeline animate={inView || isMobile ? false : true}>
           {timelineCards.map((timelineCard, index) => {
             return (

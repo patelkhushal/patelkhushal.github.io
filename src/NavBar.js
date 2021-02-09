@@ -11,7 +11,7 @@ export default function NavBar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 991px)' })
 
-  const linkElements = ["home", "about", "timeline", "projects", "jisoo", "joy"];
+  const linkElements = ["home", "about", "timeline", "projects", "skills", "contact"];
   const iconLabels = [
     "Home",
     "About",
@@ -62,7 +62,7 @@ export default function NavBar() {
                 to={linkElementName}
                 spy={true}
                 smooth={true}
-                duration={475}
+                duration={500}
                 // offset={-275}
                 offset={isTabletOrMobile? -275 : -65}
                 // offset={isTabletOrMobile? -275 : -65}

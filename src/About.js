@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Element } from "react-scroll";
 import { useMediaQuery } from "react-responsive";
 import Container from "react-bootstrap/Container";
@@ -10,10 +10,9 @@ import { RiNetflixFill } from "react-icons/ri";
 import { FaDollarSign } from "react-icons/fa";
 import { BsMusicNoteList } from "react-icons/bs";
 import { GiRingedPlanet, GiPencilBrush, GiCampfire } from "react-icons/gi";
+import { Slide } from "react-awesome-reveal";
 
-// import Fade from "react-reveal/Fade";
-import { Fade, Slide } from "react-awesome-reveal";
-// import Slide from "react-reveal/Fade";
+import useMobileDeviceCheck from "./useMobileDeviceCheck"
 
 import ProfilePicture from "./assets/images/ProfilePicture.jpg";
 import MachineLearningImage from "./assets/images/MachineLearning.svg";
@@ -24,8 +23,6 @@ export default function About() {
   const breakLgScreenFlipCards = useMediaQuery({
     query: "(max-width: 1199px)",
   });
-  // const stopAnimateWidth = useMediaQuery({ query: "(max-width: 768px)" });
-  // const stopAnimateHeight = useMediaQuery({ query: "(min-height: 750px)" });
   const isExtraSmallScreenWidth = useMediaQuery({
     query: "(max-width: 359px)",
   });
@@ -79,7 +76,6 @@ export default function About() {
         <Row>
           <Col md="auto" style={{ textAlign: "center",  paddingBottom:"15px"}}>
             <Slide direction="left" triggerOnce={true}>
-              {/* <Slide direction="left" delay={stopAnimateWidth || stopAnimateHeight ? 0 : 175}> */}
               <div>
                 <img
                   src={ProfilePicture}
@@ -99,7 +95,6 @@ export default function About() {
           </Col>
           <Col>
             <Slide direction="right" triggerOnce={true}>
-              {/* <Slide direction="right" delay={stopAnimateWidth || stopAnimateHeight ? 0 : 1100}> */}
               <h5 style={{ paddingBottom: "7px", textAlign: "center" }}>
                 Who Am I?
               </h5>
@@ -112,11 +107,9 @@ export default function About() {
                 Full Stack, Web/Mobile Applications Dev and QA Automation
                 Engineer.
               </p>
-              {/* <br /> */}
             </Slide>
             <div style={{ textAlign: "center" }}>
               <Slide direction="right" triggerOnce={true}>
-                {/* <Slide direction="right" delay={stopAnimateWidth || stopAnimateHeight ? 0 : 1800}> */}
                 <Row
                   className="justify-content-center"
                   style={{ paddingBottom: "10px", paddingTop:"35px" }}
@@ -166,9 +159,7 @@ export default function About() {
             </div>
           </Col>
         </Row>
-        {/* <Slide direction="up" triggerOnce={true}> */}
         <Slide direction="up" triggerOnce={true}>
-          {/* <Slide direction="down" delay={(stopAnimateWidth || stopAnimateHeight) ? 0 : 2200}> */}
           <Row
             className="justify-content-center"
             style={{
@@ -187,9 +178,6 @@ export default function About() {
             </p>
           </Row>
           <Row
-            // xs={isExtraSmallScreenWidth ? 1 : 2}
-            // sm={2}
-            // md={3}
             lg={breakLgScreenFlipCards ? 5 : 6}
             className="justify-content-center"
             // style={{ marginRight: "0px" }}
@@ -204,21 +192,15 @@ export default function About() {
                   key={index}
                   style={{ display: "flex", alignItems: "center" }}
                 >
-                  {/* style={{maxHeight: "160px", maxWidth: "185px"}} */}
                   <Flippy
                     flipOnHover={isMobile ? false : true}
                     flipOnClick={isMobile ? true : false}
-                    // style={{height: "140px", width: "165px"}}
-                    // style={{width: "170px", height:"140px", borderColor: "2px cyan"}}
                   >
                     <FrontSide
                       className={
                         isExtraSmallScreenWidth ? "flip-card-xs" : "flip-card"
                       }
-                      // style={{ backgroundColor: flipCard[3] }}
                       style={{
-                        // width: "170px",
-                        // height: "140px",
                         backgroundColor: flipCard[3],
                       }}
                     >
@@ -259,32 +241,7 @@ export default function About() {
             })}
           </Row>
         </Slide>
-        {/* </Slide> */}
       </Container>
     </Element>
   );
-}
-
-// Hook to detect mobile devices
-function useMobileDeviceCheck() {
-  const [isMobileDevice, setIsMobileDevice] = useState(false);
-
-  useEffect(() => {
-    // Handler to call on window resize
-    function handleResize() {
-      // Detect if current device is mobile
-      setIsMobileDevice(!!navigator.maxTouchPoints);
-    }
-
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-
-    // Call handler right away so state gets updated with initial device type
-    handleResize();
-
-    // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty array ensures that effect is only run on mount
-
-  return isMobileDevice;
 }

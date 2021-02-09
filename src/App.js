@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import NavBar from "./NavBar";
 import { Element } from "react-scroll";
@@ -7,7 +7,9 @@ import { Rings } from "svg-loaders-react";
 import Home from "./Home";
 import About from "./About";
 import Timeline from "./Timeline";
-import Projects from "./Projects"
+import Projects from "./Projects";
+import Skills from "./Skills";
+import Contact from "./Contact"
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -35,21 +37,9 @@ function App() {
       <About />
       <Timeline />
       <Projects />
-      <Element name="jisoo" className="jisoo">
-        <img
-          src="https://wallpapercave.com/wp/wp2118314.jpg"
-          alt="sana"
-          style={{ height: "auto", width: "100%" }}
-        ></img>
-      </Element>
-
-      <Element name="joy" className="joy">
-        <img
-          src="https://www.xtrafondos.com/wallpapers/taeyeon-cantante-de-kpop-4248.jpg"
-          alt="sana"
-          style={{ height: "inherit", width: "100%" }}
-        ></img>
-      </Element>
+      <Skills />
+      {/* <Home /> */}
+      <Contact />
     </div>
   ) : (
     <div

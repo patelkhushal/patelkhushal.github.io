@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Element } from "react-scroll";
 import { useMediaQuery } from 'react-responsive'
 import Container from "react-bootstrap/Container";
@@ -11,7 +11,7 @@ import Bounce from "react-reveal/Bounce";
 import Fade from "react-reveal/Fade";
 import Pulse from "react-reveal/Pulse";
 
-import ParticlesComp from "./ParticlesComp";
+// import ParticlesComp from "./ParticlesComp";
 
 import Grow from "@material-ui/core/Grow";
 // import Collapse from "@material-ui/core/Collapse";
@@ -32,7 +32,7 @@ import HomeBackgroundImage from './assets/images/HomeBackgroundImage.jpg';
 
 export default function Home() {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 991px)' })
-  const linkElements = ["about", "timeline", "projects", "jisoo", "joy"];
+  const linkElements = ["about", "timeline", "projects", "skills", "contact"];
   const iconLabels = ["About", "Timeline", "Projects", "Skills", "Contact"];
   const linkElementsIcons = [
     RiUser3Fill,

@@ -39,21 +39,21 @@ p {
 }
 
 /* prevent navbar collapse drop down to fit the minimum possible height of the browser */
-@media only screen and (max-width: 991px) and (max-height: 287px){
+@media only screen and (max-width: 991px) and (max-height: 287px) {
   .nav-item {
     height: 2.27rem !important;
   }
 }
 
 /* prevent side bar nav items on home to overflow with max width (1200px - max width) and min height */
-@media only screen and (min-width: 1200px) and (max-height: 268px){
+@media only screen and (max-height: 330px) {
   .side-nav-item {
     padding: 0.65vmax 1.5vmax !important;
   }
 }
 
 /* Put the sidebar and bottom contact bar on home component on top and bottom center */
-@media only screen and (max-width: 660px) {
+@media only screen and (max-width: 870px) {
   #side-nav {
     /* display: none !important; */
     flex-direction: row !important;
@@ -267,7 +267,8 @@ p {
   cursor: pointer;
   display: inline-block;
   position: relative;
-  padding: 0.95vmax 1.42vmax;
+  /* padding: 1.1vmax 1.42vmax; */
+  padding: 20px 25px;
   color: silver;
   font-weight: 545;
   /* no select */
@@ -296,7 +297,8 @@ p {
 .side-nav-item:hover + .side-nav-item-text {
   display: flex;
   /* padding: 0.95vmax; */
-  padding-top: 1.5vmax;
+  /* padding-top: 1.5vmax; */
+  padding-top: 30px;
   color: white;
 }
 
@@ -305,7 +307,7 @@ p {
   font-family: monospace;
   /* padding-left: 20px; */
   /* width: auto; */
-  padding-bottom: 25px;
+  padding-bottom: 10px;
   /* padding-top: 15px; */
   position: absolute;
   color: white;
@@ -395,8 +397,8 @@ p {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  width: 165px !important;
-  height: 133px !important;
+  width: 170px !important;
+  height: 135px !important;
   /* min-height: 140px;
   min-width: 165px;
   max-height: 140px;
@@ -471,6 +473,29 @@ p {
   transform: rotateX(0deg) !important;
 }
 
+.modal-header .close {
+  color: white !important;
+}
+
+.modal-header .close:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 0 !important;
+}
+
+.modal-content {
+  overflow: hidden;
+  border-radius: 2% !important;
+}
+
+.custom-dialog {
+  /* width: 80%; */
+  top: 5%;
+}
+
+/* .border-color{
+  border: 1px solid black;
+} */
+
 /* .back-card:hover{
   border-right: 1px solid black;
 } */
@@ -483,3 +508,40 @@ p {
 /* .projects-buttons {
   transition: background-color 0.6s ease-in-out;
 } */
+
+/* -------------------------------------------------------- Skills Component CSS -------------------------------------------------------- */
+.skills-header {
+  font-size: large;
+  font-weight: 500;
+}
+
+.no-selection {
+  user-select: none; /* standard syntax */
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
+}
+
+/* -------------------------------------------------------- Contact Component CSS -------------------------------------------------------- */
+.contact-icon-container {
+  font-size: 1.8rem;
+  padding: 30px;
+}
+
+.contact-icon-up {
+  font-size: 2.5rem;
+  padding: 30px 0px !important;
+}
+.export-btn path {
+  stroke: #8a3ab9;
+}
+
+.export-btn:hover path {
+  stroke: #1da1f2;
+}
+
+.export-btn {
+  padding: 0px 20px 0px 50px;
+  margin-top: -8px;
+}

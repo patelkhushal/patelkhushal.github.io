@@ -9,7 +9,6 @@ import { scroller } from "react-scroll";
 import { CgChevronDoubleUp } from "react-icons/cg";
 import { RiCopyrightFill } from "react-icons/ri";
 import { useMediaQuery } from "react-responsive";
-import Button from "react-bootstrap/Button"
 
 // import UseAnimations from "react-useanimations";
 // import github from "react-useanimations/lib/github";

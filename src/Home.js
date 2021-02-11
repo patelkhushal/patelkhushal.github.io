@@ -1,6 +1,6 @@
 import React from "react";
 import { Element } from "react-scroll";
-import { useMediaQuery } from 'react-responsive'
+import { useMediaQuery } from "react-responsive";
 import Container from "react-bootstrap/Container";
 // import Typing from "react-typing-animation";
 import { scroller } from "react-scroll";
@@ -28,10 +28,11 @@ import {
 import { RiUser3Fill, RiStackFill, RiFootprintFill } from "react-icons/ri";
 import { IoMdChatbubbles } from "react-icons/io";
 import { HiMail } from "react-icons/hi";
-import HomeBackgroundImage from './assets/images/HomeBackgroundImage.jpg';
+import { AiOutlineTwitter } from "react-icons/ai";
+import HomeBackgroundImage from "./assets/images/HomeBackgroundImage.jpg";
 
 export default function Home() {
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 991px)' })
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 991px)" });
   const linkElements = ["about", "timeline", "projects", "skills", "contact"];
   const iconLabels = ["About", "Timeline", "Projects", "Skills", "Contact"];
   const linkElementsIcons = [
@@ -62,7 +63,10 @@ export default function Home() {
           }}
         >
           {/* <ParticlesComp /> */}
-          <div id="home-background" style={{backgroundImage: "url(" + HomeBackgroundImage + ")"}}></div>
+          <div
+            id="home-background"
+            style={{ backgroundImage: "url(" + HomeBackgroundImage + ")" }}
+          ></div>
           <Fade left delay={2200}>
             <div id="side-nav">
               {linkElements.map((linkElementName, index) => {
@@ -88,11 +92,11 @@ export default function Home() {
           <Container id="type-greeting-container">
             <Bounce top delay={900}>
               <div style={{ textAlign: "center" }}>
-                <p style={{padding:"10px"}}>
+                <p style={{ padding: "10px" }}>
                   Hello! My name is{" "}
                   <span id="greeting-name">Khushal Patel</span>
                 </p>
-                <p style={{padding:"15px"}}>I'm a Software Dev :)</p>
+                <p style={{ padding: "15px" }}>I'm a Software Dev :)</p>
               </div>
             </Bounce>
             <Fade left delay={1900}>
@@ -106,7 +110,7 @@ export default function Home() {
                       onClick={() => {
                         scroller.scrollTo("about", {
                           smooth: true,
-                          offset: isTabletOrMobile? -50 : -65,
+                          offset: isTabletOrMobile ? -50 : -65,
                           duration: 500,
                         });
                       }}
@@ -125,17 +129,50 @@ export default function Home() {
             <div id="bottom-bar-contact">
               <div className="side-nav-icon-container">
                 <span className="side-nav-item zoom">
-                  <AiFillLinkedin />
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/khushal-patel/"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "inherit", color: "inherit" }}
+                  >
+                    <AiFillLinkedin />
+                  </a>
                 </span>
               </div>
               <div className="side-nav-icon-container">
                 <span className="side-nav-item zoom">
-                  <AiFillGithub />
+                  <a
+                    target="_blank"
+                    href="https://github.com/patelkhushal"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "inherit", color: "inherit" }}
+                  >
+                    <AiFillGithub />
+                  </a>
                 </span>
               </div>
               <div className="side-nav-icon-container">
                 <span className="side-nav-item zoom">
-                  <HiMail />
+                  <a
+                    target="_blank"
+                    href="mailto:patelbapu128@gmail.com"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "inherit", color: "inherit" }}
+                  >
+                    <HiMail />
+                  </a>
+                </span>
+              </div>
+              <div className="side-nav-icon-container">
+                <span className="side-nav-item zoom">
+                  <a
+                    target="_blank"
+                    href="https://twitter.com/Khushal34837340"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "inherit", color: "inherit" }}
+                  >
+                    <AiOutlineTwitter />
+                  </a>
                 </span>
               </div>
             </div>

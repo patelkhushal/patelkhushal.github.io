@@ -47,7 +47,8 @@ export default function Skills() {
   const skillsBackgroundImages = [
     "https://res.cloudinary.com/springboard-images/image/upload/q_auto,f_auto,fl_lossy/wordpress/2019/07/sb-blog-programming.png",
     "https://blog.hyperiondev.com/wp-content/uploads/2019/02/Blog-Types-of-Web-Dev.jpg",
-    "https://www.knitinfotech.com/wp-content/uploads/2020/08/3-Types-of-web-development.jpg",
+    "https://image.freepik.com/free-vector/dark-analytics-concept-illustration_114360-2752.jpg",
+    // "https://image.freepik.com/free-vector/visual-data-concept-illustration_114360-2759.jpg",
     "https://cutewallpaper.org/21/linkedin-background-photo-engineering/Entry-52-by-freelancerboy36-for-LinkedIn-Background-Image-.jpg",
   ];
 
@@ -91,6 +92,12 @@ export default function Skills() {
     query: "(max-width: 440px)",
   });
 
+  const getAlignment = (label) => {
+    if (label === "Programming" || label === "Miscellaneous") return "center"
+    if (label === "Full Stack / Web") return "flex-start"
+    if (label === "Data Analytics / DBs") return "flex-end"
+  }
+
   return (
     <Element
       name="skills"
@@ -131,7 +138,7 @@ export default function Skills() {
                   }}
                 >
                   <FrontSide
-                    className="justify-content-center"
+                    // className="justify-content-center"
                     style={{
                       width: breakSkillCardsWidth ? "90vw" : "24rem",
                       borderRadius: "5%",
@@ -142,12 +149,13 @@ export default function Skills() {
                       // width: "200px",
                       // height: "275px",
                       display: "flex",
-                      justifyContent: "center",
+                      justifyContent: getAlignment(label),
                       flexDirection: "column",
-                      alignContent: "center",
-                      alignItems: "center",
+                      // alignContent: "center",
+                      // alignItems: "center",
                       textAlign: "center",
-                      color: "white",
+                      // color: "white",
+                      color: label === "Data Analytics / DBs" ? "black" : "white",
                       // marginBottom: "100px",
                       backgroundImage:
                         "url(" + skillsBackgroundImages[index] + ")",
@@ -160,6 +168,9 @@ export default function Skills() {
                         fontFamily: "monospace",
                         fontSize: "1.8rem",
                         fontWeight: "500",
+                        // display: "flex",
+                        // flexDirection: "column",
+                        // justifyContent: "flex-end"
                       }}
                     >
                       {label}
@@ -172,11 +183,11 @@ export default function Skills() {
                   <BackSide
                     style={{
                       width: breakSkillCardsWidth ? "90vw" : "24rem",
-                      height: "110%",
+                      height: "112%",
                       // marginTop:"-20px",
                       borderRadius: "5%",
                       backgroundColor: "white",
-                      overflow: breakSkillCardsWidth ? "scroll" : "hidden",
+                      overflow: "scroll"
                     }}
                   >
                     <div

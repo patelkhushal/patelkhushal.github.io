@@ -2,13 +2,14 @@ import React from "react";
 import { Element } from "react-scroll";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+// import Col from "react-bootstrap/Col";
 
-import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
-import { HiMail } from "react-icons/hi";
-import { BsBoxArrowUp } from "react-icons/bs";
+import { scroller } from "react-scroll";
+
+import { CgChevronDoubleUp } from "react-icons/cg";
 import { RiCopyrightFill } from "react-icons/ri";
 import { useMediaQuery } from "react-responsive";
+import Button from "react-bootstrap/Button"
 
 // import UseAnimations from "react-useanimations";
 // import github from "react-useanimations/lib/github";
@@ -20,7 +21,6 @@ import { useMediaQuery } from "react-responsive";
 import { AnimatedSocialIcon } from "react-animated-social-icons";
 
 export default function Contact() {
-
   const breakIconSize = useMediaQuery({
     query: "(max-width: 400px)",
   });
@@ -84,7 +84,10 @@ export default function Contact() {
             width={breakIconSize ? "1.4rem" : "1.75em"}
             defaultColor="#D1D1D1"
             hoverColor="#2867B2"
-            style={{ padding: breakIconSize ? "0px 25px 0px 5px" : "0px 40px 0px 25px", cursor: "default" }}
+            style={{
+              padding: breakIconSize ? "0px 25px 0px 5px" : "0px 40px 0px 25px",
+              // cursor: "default",
+            }}
             animation="bounce"
             animationDuration={0.8}
             url="https://www.linkedin.com/in/khushal-patel/"
@@ -94,8 +97,11 @@ export default function Contact() {
             brandName="www"
             width={breakIconSize ? "1.4rem" : "1.75em"}
             defaultColor="#D1D1D1"
-            hoverColor="#EA4335"
-            style={{ padding: breakIconSize ? "0px 30px" : "0px 40px", cursor: "default" }}
+            hoverColor="#d32937"
+            style={{
+              padding: breakIconSize ? "0px 30px" : "0px 40px",
+              // cursor: "default",
+            }}
             animation="bounce"
             animationDuration={0.8}
             url="mailto:patelbapu128@gmail.com"
@@ -106,7 +112,10 @@ export default function Contact() {
             width={breakIconSize ? "1.4rem" : "1.75em"}
             defaultColor="#D1D1D1"
             hoverColor="#1DA1F2"
-            style={{ padding: breakIconSize ? "0px 30px" : "0px 40px", cursor: "default" }}
+            style={{
+              padding: breakIconSize ? "0px 30px" : "0px 40px",
+              // cursor: "default",
+            }}
             animation="bounce"
             animationDuration={0.8}
             url="https://twitter.com/Khushal34837340"
@@ -117,7 +126,10 @@ export default function Contact() {
             width={breakIconSize ? "1.4rem" : "1.75em"}
             defaultColor="#D1D1D1"
             hoverColor="#cd486b"
-            style={{ padding: breakIconSize ? "0px 30px" : "0px 40px", cursor: "default" }}
+            style={{
+              padding: breakIconSize ? "0px 30px" : "0px 40px",
+              // cursor: "default",
+            }}
             animation="bounce"
             animationDuration={0.8}
             url="https://www.instagram.com/patelkhushal18/"
@@ -127,8 +139,11 @@ export default function Contact() {
             brandName="github"
             width={breakIconSize ? "1.4rem" : "1.75em"}
             defaultColor="#D1D1D1"
-            hoverColor="white"
-            style={{ padding: breakIconSize ? "0px 30px" : "0px 40px", cursor: "default" }}
+            hoverColor="black"
+            style={{
+              padding: breakIconSize ? "0px 30px" : "0px 40px",
+              // cursor: "default",
+            }}
             animation="bounce"
             animationDuration={0.8}
             url="https://github.com/patelkhushal"
@@ -136,8 +151,27 @@ export default function Contact() {
           {/* <div className="export-btn"><UseAnimations animation={instagram} size={45} /></div> */}
         </Row>
         <Row className="justify-content-center">
-          <div className="contact-icon-up">
-            <BsBoxArrowUp></BsBoxArrowUp>
+          <div className="contact-icon-up zoom">
+            {/* <Button
+            size="large"
+              onClick={() => {
+                scroller.scrollTo("home", {
+                  smooth: true,
+                  // offset: isTabletOrMobile ? -50 : -65,
+                  duration: 500,
+                });
+              }}
+            > */}
+              <CgChevronDoubleUp
+              onClick={() => {
+                scroller.scrollTo("home", {
+                  smooth: true,
+                  // offset: isTabletOrMobile ? -50 : -65,
+                  duration: 500,
+                });
+              }}
+              ></CgChevronDoubleUp>
+            {/* </Button> */}
           </div>
         </Row>
         <Row className="justify-content-center pb-2">

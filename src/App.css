@@ -50,10 +50,17 @@ p {
   .side-nav-item {
     padding: 0.65vmax 1.5vmax !important;
   }
+  .side-nav-item:hover + .side-nav-item-text {
+    display: flex;
+    /* padding: 0.95vmax; */
+    /* padding-top: 1.5vmax; */
+    padding-top: 14px !important;
+    color: white;
+  }
 }
 
 /* Put the sidebar and bottom contact bar on home component on top and bottom center */
-@media only screen and (max-width: 870px) {
+@media only screen and (max-width: 745px) {
   #side-nav {
     /* display: none !important; */
     flex-direction: row !important;
@@ -379,7 +386,7 @@ p {
   position: absolute;
   bottom: 0%;
   right: 3%;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   /* overflow: auto; */
   /* width: 100%; */
   /* left: 0%; */
@@ -530,10 +537,16 @@ p {
 }
 
 .contact-icon-up {
-  font-size: 2.5rem;
-  padding: 30px 0px !important;
+  font-size: 3.3rem;
+  margin: 18px 0px 23px 0px !important;
+  color: silver;
+  cursor: pointer;
 }
-.export-btn path {
+.contact-icon-up:hover {
+  color: white;
+  /* background-color: #d32937; */
+}
+/* .export-btn path {
   stroke: #8a3ab9;
 }
 
@@ -544,4 +557,4 @@ p {
 .export-btn {
   padding: 0px 20px 0px 50px;
   margin-top: -8px;
-}
+} */

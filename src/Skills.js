@@ -3,100 +3,61 @@ import { Element } from "react-scroll";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Slide, Fade, Zoom, JackInTheBox } from "react-awesome-reveal";
-import { AttentionSeeker } from "react-awesome-reveal";
-import Swing from "react-reveal/Swing";
 import { useMediaQuery } from "react-responsive";
+import { JackInTheBox } from "react-awesome-reveal";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
-import uuid from "react-uuid";
-// import { RiTerminalFill } from "react-icons/ri";
-// import { SiFormstack } from "react-icons/si";
-// import { GoGraph } from "react-icons/go";
-// import { MdMoreHoriz } from "react-icons/md";
 
-import PythonLogo from "./assets/images/Python.png";
-import JavaLogo from "./assets/images/Java.webp";
-import JavascriptLogo from "./assets/images/Javascript.svg";
-import CLogo from "./assets/images/C.webp";
-import SQLLogo from "./assets/images/SQL.png";
-
-import AngularLogo from "./assets/images/Angular.svg";
-import ReactLogo from "./assets/images/React.png";
-import FlaskLogo from "./assets/images/Flask.png";
-import NodeLogo from "./assets/images/Node.png";
-import HTMLLogo from "./assets/images/HTML.jpg";
-import CSSLogo from "./assets/images/CSS.svg";
-import BootstrapLogo from "./assets/images/Bootstrap.png";
-
-import SparkLogo from "./assets/images/Spark.png";
-import HadoopLogo from "./assets/images/Hadoop.jpg";
-import NLTKLogo from "./assets/images/NLTK.png";
-import TableauLogo from "./assets/images/Tableau.svg";
-import RedisLogo from "./assets/images/Redis.webp";
-import MongoLogo from "./assets/images/Mongo.png";
-import DB2Logo from "./assets/images/DB2.png";
-
-import GithubLogo from "./assets/images/Github.png";
-import HerokuLogo from "./assets/images/Heroku.png";
-import JenkinsLogo from "./assets/images/Jenkins.jpg";
-import DockerLogo from "./assets/images/Docker.png";
-import BashLogo from "./assets/images/Bash.png";
+import TechIcon from "./TechIcon";
+import ProgrammingImage from "./assets/images/Programming.jpeg";
+import FullStackImage from "./assets/images/FullStack.webp";
+import DataAnalyticsImage from "./assets/images/DataAnalytics.jpg";
+import MiscellaneousImage from "./assets/images/Matrix.jpg";
 
 export default function Skills() {
-  // const skillLabelIcons = [RiTerminalFill, SiFormstack, GoGraph, MdMoreHoriz];
   const skillsBackgroundImages = [
-    "https://res.cloudinary.com/springboard-images/image/upload/q_auto,f_auto,fl_lossy/wordpress/2019/07/sb-blog-programming.png",
-    "https://blog.hyperiondev.com/wp-content/uploads/2019/02/Blog-Types-of-Web-Dev.jpg",
-    "https://image.freepik.com/free-vector/dark-analytics-concept-illustration_114360-2752.jpg",
-    // "https://image.freepik.com/free-vector/visual-data-concept-illustration_114360-2759.jpg",
-    "https://cutewallpaper.org/21/linkedin-background-photo-engineering/Entry-52-by-freelancerboy36-for-LinkedIn-Background-Image-.jpg",
+    ProgrammingImage,
+    FullStackImage,
+    DataAnalyticsImage,
+    MiscellaneousImage,
   ];
 
   const skills = {
-    "Programming": {
-      Python: PythonLogo,
-      Java: JavaLogo,
-      Javascript: JavascriptLogo,
-      C: CLogo,
-      SQL: SQLLogo,
-    },
-    "Full Stack / Web": {
-      Angular: AngularLogo,
-      React: ReactLogo,
-      Flask: FlaskLogo,
-      Node: NodeLogo,
-      HTML: HTMLLogo,
-      CSS: CSSLogo,
-      Bootstrap: BootstrapLogo,
-    },
-    "Data Analytics / DBs": {
-      Spark: SparkLogo,
-      Hadoop: HadoopLogo,
-      NLTK: NLTKLogo,
-      Tableau: TableauLogo,
-      Redis: RedisLogo,
-      MongoDB: MongoLogo,
-      DB2: DB2Logo,
-    },
-    "Miscellaneous": {
-      "React Native": ReactLogo,
-      Github: GithubLogo,
-      Heroku: HerokuLogo,
-      Jenkins: JenkinsLogo,
-      Docker: DockerLogo,
-      "Bash / UNIX": BashLogo,
-    },
+    Programming: ["Python", "Java", "Javascript", "Typescript", "C", "SQL"],
+    "Full Stack / Web": [
+      "Angular",
+      "React",
+      "Flask",
+      "Node",
+      "HTML",
+      "CSS",
+      "Bootstrap",
+    ],
+    "Data Analytics / DBs": [
+      "Spark",
+      "Hadoop",
+      "NLTK",
+      "Tableau",
+      "Redis",
+      "MongoDB",
+      "DB2",
+    ],
+    Miscellaneous: [
+      "React Native",
+      "Github",
+      "Heroku",
+      "Jenkins",
+      "Docker",
+      "Bash / UNIX",
+    ],
   };
 
   const breakSkillCardsWidth = useMediaQuery({
     query: "(max-width: 440px)",
   });
 
-  const getAlignment = (label) => {
-    if (label === "Programming" || label === "Miscellaneous") return "center"
-    if (label === "Full Stack / Web") return "flex-start"
-    if (label === "Data Analytics / DBs") return "flex-end"
-  }
+  const breakSkillCardsCascade = useMediaQuery({
+    query: "(max-width: 1500px)",
+  });
 
   return (
     <Element
@@ -108,148 +69,106 @@ export default function Skills() {
         <Row className="justify-content-center pb-3 pt-2">
           <h4>Skills</h4>
         </Row>
-        {/* <Fade triggerOnce={true} fraction={0.8}> */}
         <Row
           className="justify-content-center"
           style={{
             paddingTop: "20px",
-            // paddingBottom: "20px",
             textAlign: "center",
           }}
         >
-          {Object.keys(skills).map((label, index) => {
-            return (
-              <Col
-                key={index}
-                className="justify-content-center"
-                style={{
-                  // display: "inline-block",
-                  alignContent: "center",
-                  display: "flex",
-                  paddingBottom: "65px",
-                }}
-              >
-                <Flippy
-                  flipOnClick={true}
+          <JackInTheBox
+            cascade={breakSkillCardsCascade ? false : true}
+            fraction={0.55}
+            damping={0.55}
+            triggerOnce={true}
+          >
+            {Object.keys(skills).map((label, index) => {
+              return (
+                <Col
+                  key={index}
+                  className="justify-content-center"
                   style={{
-                    width: breakSkillCardsWidth ? "90vw" : "24rem",
-                    height: "290px",
-                    // cursor: "pointer"
+                    alignContent: "center",
+                    display: "flex",
+                    paddingBottom: "65px",
                   }}
                 >
-                  <FrontSide
-                    // className="justify-content-center"
+                  <Flippy
+                    flipOnClick={true}
                     style={{
                       width: breakSkillCardsWidth ? "90vw" : "24rem",
-                      borderRadius: "5%",
-                      // height: backCardHeight + "px",
-                      // height:"auto",
-                      // marginTop:"20px",
-                      // height: "300px",
-                      // width: "200px",
-                      // height: "275px",
-                      display: "flex",
-                      justifyContent: getAlignment(label),
-                      flexDirection: "column",
-                      // alignContent: "center",
-                      // alignItems: "center",
-                      textAlign: "center",
-                      // color: "white",
-                      color: label === "Data Analytics / DBs" ? "black" : "white",
-                      // marginBottom: "100px",
-                      backgroundImage:
-                        "url(" + skillsBackgroundImages[index] + ")",
-                      backgroundPosition: "center",
-                      backgroundSize: "cover",
+                      height: "290px",
                     }}
                   >
-                    <div
+                    <FrontSide
                       style={{
-                        fontFamily: "monospace",
-                        fontSize: "1.8rem",
-                        fontWeight: "500",
-                        // display: "flex",
-                        // flexDirection: "column",
-                        // justifyContent: "flex-end"
+                        width: breakSkillCardsWidth ? "90vw" : "24rem",
+                        borderRadius: "5%",
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        flexDirection: "column",
+                        textAlign: "center",
+                        color: "white",
+                        backgroundImage:
+                          "url(" + skillsBackgroundImages[index] + ")",
+                        backgroundPosition: "top",
+                        backgroundSize: "cover",
                       }}
                     >
-                      {label}
-                    </div>
-                    {/* <div style={{ fontSize: "3rem" }}>
-                      {IconTag(skillLabelIcons[index])}
-                    </div> */}
-                  </FrontSide>
-
-                  <BackSide
-                    style={{
-                      width: breakSkillCardsWidth ? "90vw" : "24rem",
-                      height: "112%",
-                      // marginTop:"-20px",
-                      borderRadius: "5%",
-                      backgroundColor: "white",
-                      overflow: "scroll"
-                    }}
-                  >
-                    <div
-                      className="justify-content-center"
-                      style={{ textAlign: "center" }}
-                    >
                       <div
-                        className="pt-1"
                         style={{
-                          fontWeight: "450",
-                          fontSize: "1.05rem",
+                          fontFamily: "monospace",
+                          fontSize: "22.3px",
+                          fontWeight: "500",
                         }}
                       >
                         {label}
                       </div>
-                      <hr />
-                      {Object.keys(skills[label]).map((skill, index) => {
-                        return (
-                          <div
-                            // key={uuid()}
-                            style={{
-                              display: "inline-block",
-                              padding: "10px 14px 15px 14px",
-                              // padding: "12.5px",
-                              // backgroundColor:"rgb(241 241 241)"
-                            }}
-                          >
-                            {/* <JackInTheBox> */}
-                            <img
-                              src={skills[label][skill]}
-                              alt={skills[label][skill]}
-                              style={{
-                                // height: "50px",
-                                width: breakSkillCardsWidth ? "12vw" : "52px",
-                                borderRadius:
-                                  skill === "Javascript" ? "25%" : "0%",
-                              }}
-                            ></img>
-                            <div
-                              className="mt-2"
-                              style={{
-                                fontFamily: "monospace",
-                                fontSize: "1.27rem",
-                                // color: skills[label][skill].color,
-                                fontWeight: "500",
-                                // border: "1px solid " + skills[label][skill].color,
-                              }}
-                            >
-                              {skill}
-                            </div>
-                            {/* </JackInTheBox> */}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </BackSide>
-                </Flippy>
-              </Col>
-            );
-          })}
+                    </FrontSide>
+
+                    <BackSide
+                      style={{
+                        width: breakSkillCardsWidth ? "90vw" : "24rem",
+                        height: "110%",
+                        borderRadius: "5%",
+                        backgroundColor: "white",
+                        overflow: breakSkillCardsWidth ? "scroll" : "hidden",
+                        paddingBottom: "0px",
+                      }}
+                    >
+                      <div
+                        className="justify-content-center"
+                        style={{ textAlign: "center" }}
+                      >
+                        <div
+                          className="pt-1"
+                          style={{
+                            fontWeight: "450",
+                            fontSize: "17px",
+                          }}
+                        >
+                          {label}
+                        </div>
+                        <hr />
+                        {skills[label].map((skill, index) => {
+                          return (
+                            <TechIcon
+                              iconName={skill}
+                              padding="10px 14px 15px 14px"
+                              iconWidth="50px"
+                              iconHeight="auto"
+                              labelSize="15.5px"
+                            ></TechIcon>
+                          );
+                        })}
+                      </div>
+                    </BackSide>
+                  </Flippy>
+                </Col>
+              );
+            })}
+          </JackInTheBox>
         </Row>
-        {/* </Fade> */}
       </Container>
     </Element>
   );

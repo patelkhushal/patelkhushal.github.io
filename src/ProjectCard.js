@@ -1,87 +1,140 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { HoverCard } from "react-png-hovercard";
 import Button from "@material-ui/core/Button";
-import uuid from "react-uuid";
-import useMobileDeviceCheck from "./useMobileDeviceCheck";
+// import uuid from "react-uuid";
+// import useMobileDeviceCheck from "./useMobileDeviceCheck";
 import Modal from "react-bootstrap/Modal";
-import { Slide } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
+import { RiCloseFill } from "react-icons/ri";
+import { GrGithub } from "react-icons/gr";
+import TechIcon from "./TechIcon";
 
 export default function ProjectCard(props) {
-  const isMobile = useMobileDeviceCheck();
+  const projectCard = props.card;
+  // const isMobile = useMobileDeviceCheck();
   const isExtraSmallScreenWidth = useMediaQuery({
     query: "(max-width: 439px)",
   });
 
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // let ref = useRef(null);
-  let ref = useRef(null);
-  const buttonRef = useRef(null);
-
-  // useEffect(() => {
-  //   const event = new MouseEvent("mouseover", {
-  //     view: window,
-  //     bubbles: true,
-  //     cancelable: true,
-  //   });
-  //   buttonRef.current.addEventListener("onclick", function () {
-  //     ref.current.dispatchEvent(event);
-  //   });
-  // }, []);
-  const projectCard = props.card;
-
-  // const handleClose = () => {
-  //   // const event = new MouseEvent("mouseover", {
-  //   //   view: window,
-  //   //   bubbles: true,
-  //   //   cancelable: true,
-  //   // });
-
-  //   console.log(ref);
-
-  //   // ref.dispatchEvent(event);
-  //   setShow(false);
-  // };
-  // const handleShow = () => setShow(true);
-
   return (
     <div>
-      <Modal show={show} onHide={handleClose} size="lg" dialogClassName='custom-dialog' style={{borderRadius:"25%"}}>
-        <img
+      <Modal
+        show={show}
+        onHide={handleClose}
+        size="lg"
+        dialogClassName="custom-dialog"
+        // restoreFocus={false}
+      >
+        {/* <img
           src={projectCard.imageUrl}
           alt={projectCard.imageUrl}
-          style={{ height: "400px", width: "100%", objectFit: "cover" }}
-        ></img>
+          style={{ height: "375px", width: "100%", objectFit: "cover" }}
+        ></img> */}
         <Modal.Header
           style={{
             backgroundColor: projectCard.themeColor,
             color: "white",
-            // borderBottom: "0px solid",
             border: "0px",
             borderRadius: "0",
-            // marginBottom: "0"
           }}
           closeButton
         >
-          <div style={{marginBottom: "0", padding:"2px 0", fontSize:"large", fontWeight: "500"}}>{projectCard.name}</div>
+          <div
+            style={{
+              marginBottom: "0",
+              padding: "2px 0",
+              fontSize: "large",
+              fontWeight: "500",
+            }}
+          >
+            {projectCard.name}
+          </div>
         </Modal.Header>
         <Modal.Body>
-          {/* <Slide> */}
-            <p>Work in progress! Stay Tuned</p>
-          {/* </Slide> */}
+          <ul>
+            <Fade cascade={true} delay={250} damping={0.4} triggerOnce={true}>
+              {projectCard.desc.map((descPoint, index) => {
+                return <li style={{ padding: "5px 0px" }}>{descPoint}</li>;
+              })}
+            </Fade>
+          </ul>
+          <div style={{ textAlign: "center" }}>
+            <div
+              style={{
+                fontWeight: "550",
+                padding: "2px 0px 8px 0px",
+                color: projectCard.themeColor,
+              }}
+            >
+              Tech Stack
+            </div>
+            <Fade
+              style={{ display: "inline-block" }}
+              cascade={true}
+              delay={projectCard.desc.length * 500}
+              damping={0.15}
+              triggerOnce={true}
+            >
+              {projectCard.techStack.map((tech, index) => {
+                return (
+                  <TechIcon
+                    iconName={tech}
+                    padding="10px 18px 0px 18px"
+                    iconWidth="40px"
+                    iconHeight="40px"
+                    labelSize="15.5px"
+                  ></TechIcon>
+                );
+              })}
+            </Fade>
+          </div>
         </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={handleClose}>Close</Button>
-        </Modal.Footer>
+        <hr style={{ borderTop: "1px solid #cacaca", width: "96%" }} />
+        <div style={{ padding: "2px 10px 14px 6px" }}>
+          <div style={{ float: "left", padding: "0px 25px" }}>
+            <Button
+              className="github-button"
+              onClick={()=> window.open(projectCard.githubLink, "_blank")}
+              style={{
+                border: "1px solid black",
+                backgroundColor: "transparent",
+                padding: "1px 14px",
+              }}
+            >
+              <div style={{ display: "inline-block", fontSize: "13px" }}>
+                Source Code
+              </div>
+              <div style={{ padding: "0px 0px 5.6px 7px", fontSize: "20px" }}>
+                <GrGithub />
+              </div>
+            </Button>
+          </div>
+          <div
+            className="close-button-container"
+            style={{ float: "right", padding: "0px 0px 3px 0px" }}
+          >
+            <Button
+              className="close-button"
+              onClick={handleClose}
+              style={{
+                backgroundColor: projectCard.themeColor,
+                color: "#e2e2e2",
+              }}
+            >
+              <div className="close-icon" style={{ fontSize: "1.2rem" }}>
+                <RiCloseFill />
+              </div>
+            </Button>
+          </div>
+        </div>
       </Modal>
       <div>
         <HoverCard
-          // key={uuid()}
-          // ref={element => ref = element}
           style={{
             color: "white",
             width: isExtraSmallScreenWidth ? "90vw" : "24.59rem",
@@ -161,7 +214,6 @@ export default function ProjectCard(props) {
                 })}
               </p>
               <Button
-                // ref={buttonRef}
                 className="project-card-button"
                 style={{
                   backgroundColor: projectCard.themeColor,

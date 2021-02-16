@@ -6,13 +6,10 @@ import { useMediaQuery } from "react-responsive";
 
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
-import { HoverCard } from "react-png-hovercard";
-import Button from "@material-ui/core/Button";
 import { Zoom } from "react-awesome-reveal";
 import uuid from "react-uuid";
 import useMobileDeviceCheck from "./useMobileDeviceCheck";
-import Modal from "react-bootstrap/Modal";
-import ProjectCard from "./ProjectCard"
+import ProjectCard from "./ProjectCard";
 
 // image imports
 import TwitterUserProfiler from "./assets/images/TwitterUserProfiler.png";
@@ -26,14 +23,15 @@ import LibraryEPurchases from "./assets/images/LibraryEPurchases.jpeg";
 import PortfolioWebsite from "./assets/images/PortfolioWebsite.jpg";
 
 export default function Projects() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   const fullStackAndWebProjects = [
     {
       name: "Twitter User Profiler",
+      desc: [
+        "Created a Twitter client that gets tweets in real time using Twitter API and builds \"Twitter User Profile\" using Python and Spark",
+        "App analyzes Twitter user’s recent tweets and profile them based on the topics and hashtags used in the tweet",
+        "Positive and Negative topics for a user is determined by performing sentiment analysis and calculating TF-IDF scores using NLP",
+        "Developed a web app to visualize Twitter User Profile that shows user’s top 10 hashtags, positive and negative topics using Angular and ExpressJS",
+      ],
       miniTechStack: ["Python", "Angular", "Redis", "NLP"],
       techStack: [
         "Python",
@@ -41,30 +39,49 @@ export default function Projects() {
         "Redis",
         "NodeJS",
         "Twitter API",
-        "Apache Spark/pyspark",
+        "Spark",
         "NLP",
       ],
       imageUrl: TwitterUserProfiler,
       themeColor: "rgb(23 118 162)",
+      githubLink: "https://github.com/patelkhushal/TweetsAnalyzer"
     },
     {
       name: "Lecture Hall Finder",
+      desc: [
+        "Developed a WebApp that help students search for empty lecture halls in York University that can be used as study rooms when library rooms are full",
+        "Data was scrapped and cleaned from York University website which shows the schedules of all the classes using Python",
+        "Created a user-friendly UI that allows user to filter empty lecture halls by building and/or by specific time and date using Angular and ExpressJS",
+      ],
       miniTechStack: ["Python", "Angular", "Redis"],
       techStack: ["Python", "Angular", "Redis", "NodeJS", "Heroku"],
       imageUrl: LectureHallFinder,
       themeColor: "rgb(199 34 34)",
+      githubLink: "https://github.com/patelkhushal/yorku-study-room"
     },
     {
       name: "Portfolio Website",
+      desc: [
+        "Designed a portfolio website focusing on UX/UI",
+        // "Feedbacks / Critics are always welcome. Shoot me a message!",
+        "Major shout-out to all the awesome open source React libraries out there!"
+      ],
       miniTechStack: ["React"],
-      techStack: ["React", "NodeJS"],
+      techStack: ["React"],
       imageUrl: PortfolioWebsite,
       themeColor: "rgb(74 79 74)",
+      githubLink: "https://github.com/patelkhushal/patelkhushal.github.io"
     },
   ];
   const dataAnalyticsProjects = [
     {
       name: "Twitter User Profiler",
+      desc: [
+        "Created a Twitter client that gets tweets in real time using Twitter API and builds \"Twitter User Profile\" using Python and Spark",
+        "App analyzes Twitter user’s recent tweets and profile them based on the topics and hashtags used in the tweet",
+        "Positive and Negative topics for a user is determined by performing sentiment analysis and calculating TF-IDF scores using NLP",
+        "Developed a web app to visualize Twitter User Profile that shows user’s top 10 hashtags, positive and negative topics using Angular and ExpressJS",
+      ],
       miniTechStack: ["Python", "Angular", "Redis", "NLP"],
       techStack: [
         "Python",
@@ -72,58 +89,91 @@ export default function Projects() {
         "Redis",
         "NodeJS",
         "Twitter API",
-        "Apache Spark/pyspark",
+        "Spark",
         "NLP",
       ],
       imageUrl: TwitterUserProfiler,
       themeColor: "rgb(23 118 162)",
+      githubLink: "https://github.com/patelkhushal/TweetsAnalyzer"
     },
     {
       name: "Hotel Reviews Analyzer",
+      desc: [
+        "Performed data analytics on various hotel reviews to allow different hotels make data-driven decisions",
+        "Data cleaning and sentiment analysis were performed on multiple data sets to pinpoint hotel's pain points",
+        "Data trends were visualized using Tableau to study whether factors like weather, date and global / local events affect customer's reviews",
+      ],
       miniTechStack: ["Python", "Tableau", "NLP"],
-      techStack: ["Python", "Apache Spark/pyspark", "NLP", "Tableau"],
+      techStack: ["Python", "Spark", "NLP", "Hadoop", "Tableau"],
       imageUrl: HotelReviewsAnalyzer,
       themeColor: "rgb(74 43 28)",
-      // themeColor: "rgb(10 62 101)",
+      githubLink: "https://github.com/patelkhushal"
     },
     {
       name: "City Weather Analytics",
-      miniTechStack: ["Python", "React"],
-      techStack: ["Python", "React"],
+      desc: [
+        "Performed data analytics on multiple weather data sets of different cities",
+        // "After data cleaning and deep analysis of different city's weather, an increasing trend in temperature was discovered which suggests global warming",
+        "The tool allows user to pass in various parameters like city name, longitude / latitude and date range to perform customized data analysis"
+      ],
+      miniTechStack: ["Python", "NLP"],
+      techStack: ["Python", "NLP"],
       imageUrl: CityWeatherAnalytics,
       themeColor: "rgb(158 36 104)",
+      githubLink: "https://github.com/patelkhushal"
     },
   ];
 
   const mobileAndOtherProjects = [
     {
       name: "Stay Home Rewards",
+      desc: [
+        "Developed a mobile app that encourages user to stay at home as part of “We vs Covid-19” hackathon",
+        "The app tracks user location and rewards them based on number of hours stayed inside their home",
+        "Designed UI to show user dashboard, rewards page and user settings page with an easy user-friendly navigation flow",
+      ],
       miniTechStack: ["React Native"],
       techStack: ["React Native"],
       imageUrl: StayHomeRewards,
       themeColor: "rgb(18 120 123)",
+      githubLink: "https://github.com/patelkhushal/stay-home"
     },
     {
       name: "Bitcoin Testnet Utility ",
+      desc: [
+        "Used BlockCypher's RESTful API to connect to the blockchain network and retrieve the balance of a bitcoin given by its public address",
+        "The app also provides an option to make a payment from one bitcoin testnet address to another in satoshis",
+      ],
       miniTechStack: ["Java", "BlockCypher API"],
-      techStack: ["Java", "BlockCypher API", "BlockChain"],
+      techStack: ["Java", "BlockCypher API"],
       imageUrl: BitcoinTestnetUtility,
       themeColor: "rgb(37 37 39)",
-      // themeColor: "rgb(10 62 101)",
+      githubLink: "https://github.com/patelkhushal/BitcoinTestnet"
     },
     {
       name: "Image Editor",
+      desc: [
+        "Developed a simple Java based image editing tool using JSwing library",
+        "The tool provides options to adjust brightness, contrast, cropping and resizing. Also allows to draw on images supporting undo / redo and zoom in / out operations",
+        "UI was built by conducting user interviews, building personas and keeping design principles in mind",
+      ],
       miniTechStack: ["Java", "JSwing"],
       techStack: ["Java", "JSwing"],
       imageUrl: ImageEditor,
       themeColor: "rgb(19 128 55)",
+      githubLink: "https://github.com/patelkhushal/image-editor"
     },
     {
       name: "Library ePurchase",
+      desc: [
+        "Developed an interactive database management application that allows customers to browse, hold and purchase eBooks from a library",
+        "Created complex SQL scripts to populate & manipulate the backend database"
+      ],
       miniTechStack: ["Java", "DB2"],
-      techStack: ["Java", "SQL/DB2"],
+      techStack: ["Java", "DB2"],
       imageUrl: LibraryEPurchases,
       themeColor: "rgb(91 54 36)",
+      githubLink: "https://github.com/patelkhushal"
     },
   ];
 
@@ -146,6 +196,7 @@ export default function Projects() {
     "Mobile & Other": mobileAndOtherProjects,
   };
 
+  // hooks
   const [projectType, setProjectType] = useState("All");
   const [projectCards, setProjectCards] = useState(allProjects);
   const isMobile = useMobileDeviceCheck();
@@ -212,135 +263,11 @@ export default function Projects() {
           >
             {projectCards.map((projectCard, index) => {
               return (
-                <ProjectCard  key={uuid()} card={projectCard}></ProjectCard>
-                // <HoverCard
-                //   key={uuid()}
-                //   style={{
-                //     color: "white",
-                //     width: isExtraSmallScreenWidth ? "90vw" : "24.59rem",
-                //     maxHeight: "285px",
-                //   }}
-                //   front={
-                //     <div
-                //       style={{
-                //         backgroundColor: projectCard.themeColor,
-                //         width: "inherit",
-                //       }}
-                //     >
-                //       <img
-                //         src={projectCard.imageUrl}
-                //         alt={projectCard.name}
-                //         style={{
-                //           width: "100%",
-                //           height: "233px",
-                //           objectFit: "cover",
-                //           objectPosition:
-                //             projectCard.name === "Stay Home Rewards"
-                //               ? "0 0"
-                //               : "center",
-                //         }}
-                //       ></img>
-                //       <div
-                //         style={{
-                //           textAlign: "center",
-                //           padding: "0.75rem 0rem 0.2rem 0rem",
-                //           fontWeight: "500",
-                //         }}
-                //       >
-                //         {projectCard.name}
-                //       </div>
-                //     </div>
-                //   }
-                //   back={
-                //     <div
-                //       className="justify-content-center"
-                //       style={{
-                //         display: "flex",
-                //         alignContent: "center",
-                //         alignItems: "center",
-                //         flexDirection: "column",
-                //         width: "inherit",
-                //         backgroundColor: "rgb(249 249 249)",
-                //         // border: "1px solid " + projectCard.themeColor,
-                //         border: isExtraSmallScreenWidth
-                //           ? ""
-                //           : "1px solid " + projectCard.themeColor,
-                //       }}
-                //     >
-                //       <p
-                //         style={{
-                //           color: projectCard.themeColor,
-                //           fontSize: "large",
-                //           fontWeight: "550",
-                //           paddingBottom: "8px",
-                //         }}
-                //       >
-                //         {projectCard.name}
-                //       </p>
-                //       <p
-                //         style={{
-                //           color: projectCard.themeColor,
-                //           fontWeight: "500",
-                //           fontSize: "1.05rem",
-                //           padding: "5px 0px 15px 0px",
-                //         }}
-                //       >
-                //         {projectCard.miniTechStack.map((tech, index) => {
-                //           return (
-                //             <span>
-                //               {index === projectCard.miniTechStack.length - 1
-                //                 ? tech
-                //                 : tech + " / "}
-                //             </span>
-                //           );
-                //         })}
-                //       </p>
-                //       <Button
-                //         className="project-card-button"
-                //         style={{
-                //           backgroundColor: projectCard.themeColor,
-                //           color: "rgb(249, 249, 249)",
-                //           borderRadius: "5%",
-                //           border: "2px solid " + projectCard.themeColor,
-                //           fontFamily: "monospace",
-                //           marginTop: "30px",
-                //           paddingLeft: "25px",
-                //           paddingRight: "25px",
-                //         }}
-                //         onClick={handleShow}
-                //       >
-                //         <span
-                //           style={{
-                //             textTransform: "none",
-                //             fontSize: "1.1rem",
-                //           }}
-                //         >
-                //           Learn More
-                //         </span>
-                //       </Button>
-                //     </div>
-                //   }
-                //   animationSpeed={700}
-                //   height={300}
-                // />
+                <ProjectCard key={uuid()} card={projectCard}></ProjectCard>
               );
             })}
           </Zoom>
         </Row>
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
       </Container>
     </Element>
   );

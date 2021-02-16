@@ -9,6 +9,7 @@ import { scroller } from "react-scroll";
 import { CgChevronDoubleUp } from "react-icons/cg";
 import { RiCopyrightFill } from "react-icons/ri";
 import { useMediaQuery } from "react-responsive";
+// import { Slide, Bounce, Fade } from "react-awesome-reveal";
 
 // import UseAnimations from "react-useanimations";
 // import github from "react-useanimations/lib/github";
@@ -39,10 +40,12 @@ export default function Contact() {
           <h4>Contact</h4>
         </Row>
         <Row className="justify-content-center pt-4 pb-2">
-          <h5 style={{ color: "#76e2de", textAlign: "center" }}>
-            Shoot me a message if you have any questions or want to work
-            together!
-          </h5>
+          {/* <Fade> */}
+            <h5 style={{ color: "#76e2de", textAlign: "center" }}>
+              Shoot me a message if you have any questions or want to work
+              together!
+            </h5>
+          {/* </Fade> */}
         </Row>
         {/* <Row className="justify-content-center">
           <div className="contact-icon-container">
@@ -77,77 +80,82 @@ export default function Contact() {
           </div>
         </Row> */}
         <Row className="justify-content-center mt-3">
-          <AnimatedSocialIcon
-            className="pt-3 pb-2"
-            brandName="linkedin"
-            width={breakIconSize ? "1.4rem" : "1.75em"}
-            defaultColor="#D1D1D1"
-            hoverColor="#2867B2"
-            style={{
-              padding: breakIconSize ? "0px 25px 0px 5px" : "0px 40px 0px 25px",
-              // cursor: "default",
-            }}
-            animation="bounce"
-            animationDuration={0.8}
-            url="https://www.linkedin.com/in/khushal-patel/"
-          />
-          <AnimatedSocialIcon
-            className="pt-3 pb-2"
-            brandName="www"
-            width={breakIconSize ? "1.4rem" : "1.75em"}
-            defaultColor="#D1D1D1"
-            hoverColor="#d32937"
-            style={{
-              padding: breakIconSize ? "0px 30px" : "0px 40px",
-              // cursor: "default",
-            }}
-            animation="bounce"
-            animationDuration={0.8}
-            url="mailto:patelbapu128@gmail.com"
-          />
-          <AnimatedSocialIcon
-            className="pt-3 pb-2"
-            brandName="twitter"
-            width={breakIconSize ? "1.4rem" : "1.75em"}
-            defaultColor="#D1D1D1"
-            hoverColor="#1DA1F2"
-            style={{
-              padding: breakIconSize ? "0px 30px" : "0px 40px",
-              // cursor: "default",
-            }}
-            animation="bounce"
-            animationDuration={0.8}
-            url="https://twitter.com/Khushal34837340"
-          />
-          <AnimatedSocialIcon
+          {/* <Slide direction="up" style={{display: "flex"}}> */}
+            <AnimatedSocialIcon
+              className="pt-3 pb-2"
+              brandName="linkedin"
+              width={breakIconSize ? "1.4rem" : "1.75em"}
+              defaultColor="#D1D1D1"
+              hoverColor="#2867B2"
+              style={{
+                padding: breakIconSize
+                  ? "0px 25px 0px 5px"
+                  : "0px 45px 0px 0px",
+                // cursor: "default",
+              }}
+              animation="bounce"
+              animationDuration={0.8}
+              url="https://www.linkedin.com/in/khushal-patel/"
+            />
+            <AnimatedSocialIcon
+              className="pt-3 pb-2"
+              brandName="www"
+              width={breakIconSize ? "1.4rem" : "1.75em"}
+              defaultColor="#D1D1D1"
+              hoverColor="#d32937"
+              // hoverColor="#d05206"
+              style={{
+                padding: breakIconSize ? "0px 30px" : "0px 45px",
+                // cursor: "default",
+              }}
+              animation="bounce"
+              animationDuration={0.8}
+              url="mailto:patelbapu128@gmail.com"
+            />
+            <AnimatedSocialIcon
+              className="pt-3 pb-2"
+              brandName="github"
+              width={breakIconSize ? "1.4rem" : "1.75em"}
+              defaultColor="#D1D1D1"
+              hoverColor="black"
+              style={{
+                padding: breakIconSize ? "0px 30px" : "0px 45px",
+                // cursor: "default",
+              }}
+              animation="bounce"
+              animationDuration={0.8}
+              url="https://github.com/patelkhushal"
+            />
+            <AnimatedSocialIcon
+              className="pt-3 pb-2"
+              brandName="twitter"
+              width={breakIconSize ? "1.4rem" : "1.75em"}
+              defaultColor="#D1D1D1"
+              hoverColor="#1DA1F2"
+              style={{
+                padding: breakIconSize ? "0px 30px" : "0px 45px",
+                // cursor: "default",
+              }}
+              animation="bounce"
+              animationDuration={0.8}
+              url="https://twitter.com/Khushal34837340"
+            />
+            {/* <AnimatedSocialIcon
             className="pt-3 pb-2"
             brandName="instagram"
             width={breakIconSize ? "1.4rem" : "1.75em"}
             defaultColor="#D1D1D1"
             hoverColor="#cd486b"
             style={{
-              padding: breakIconSize ? "0px 30px" : "0px 40px",
+              padding: breakIconSize ? "0px 30px" : "0px 45px",
               // cursor: "default",
             }}
             animation="bounce"
             animationDuration={0.8}
             url="https://www.instagram.com/patelkhushal18/"
-          />
-          <AnimatedSocialIcon
-            className="pt-3 pb-2"
-            brandName="github"
-            width={breakIconSize ? "1.4rem" : "1.75em"}
-            defaultColor="#D1D1D1"
-            hoverColor="black"
-            style={{
-              padding: breakIconSize ? "0px 30px" : "0px 40px",
-              // cursor: "default",
-            }}
-            animation="bounce"
-            animationDuration={0.8}
-            url="https://github.com/patelkhushal"
-          />
-          {/* <div className="export-btn"><UseAnimations animation={instagram} size={45} /></div> */}
+          /> */}
+            {/* <div className="export-btn"><UseAnimations animation={instagram} size={45} /></div> */}
+          {/* </Slide> */}
         </Row>
         <Row className="justify-content-center">
           <div className="contact-icon-up zoom">
@@ -161,7 +169,7 @@ export default function Contact() {
                 });
               }}
             > */}
-              <CgChevronDoubleUp
+            <CgChevronDoubleUp
               onClick={() => {
                 scroller.scrollTo("home", {
                   smooth: true,
@@ -169,7 +177,7 @@ export default function Contact() {
                   duration: 500,
                 });
               }}
-              ></CgChevronDoubleUp>
+            ></CgChevronDoubleUp>
             {/* </Button> */}
           </div>
         </Row>

@@ -222,7 +222,7 @@ export default function About() {
                       className={
                         isExtraSmallScreenWidth ? "flip-card-xs" : "flip-card"
                       }
-                      style={{ backgroundColor: flipCard[3], overflow: "scroll" }}
+                      style={{ backgroundColor: flipCard[3]}}
                     >
                       <span
                         style={{

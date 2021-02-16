@@ -41,7 +41,7 @@ export default function NavBar() {
       // bg="white"
       variant="dark"
       expand="lg"
-      style={{ minHeight: "7.12vh" }}
+      // style={{ minHeight: "7.12vh" }}
       onToggle={() => setIsNavExpanded(!isNavExpanded)}
       // onSelect={() => setIsNavExpanded((currentIsNavExpanded) => !currentIsNavExpanded)}
       // onToggle={setIsNavExpanded(currentIsNavExpanded => !currentIsNavExpanded)}

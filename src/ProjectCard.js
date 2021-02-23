@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRef} from "react";
 import { useMediaQuery } from "react-responsive";
 import { HoverCard } from "react-png-hovercard";
 import Button from "@material-ui/core/Button";
 // import uuid from "react-uuid";
 // import useMobileDeviceCheck from "./useMobileDeviceCheck";
+
 import Modal from "react-bootstrap/Modal";
+// import Modal from "react-modal";
+
 import { Fade } from "react-awesome-reveal";
 import { RiCloseFill } from "react-icons/ri";
 import { GrGithub } from "react-icons/gr";
@@ -17,24 +20,45 @@ export default function ProjectCard(props) {
     query: "(max-width: 439px)",
   });
 
+  const isSmallScreenHeight = useMediaQuery({
+    query: "(max-height: 476px)",
+  });
+
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const handleClose = () => setShow(false); 
   const handleShow = () => setShow(true);
+
+  const cardRef = useRef(null)
+  const handleOnClick = () => {
+    if(!cardRef.current.state.isHover){
+      cardRef.current.setState({isHover: true})
+    }
+  }
+
+  const handleMouseOver = () => {
+    console.log("in")
+    if(!cardRef.current.state.isHover){
+      cardRef.current.setState({isHover: true})
+    }
+  }
 
   return (
     <div>
+      {/* <img
+        src={projectCard.imageUrl}
+        alt={projectCard.imageUrl}
+        style={{ height: "375px", width: "100%", objectFit: "cover" }}
+      ></img> */}
       <Modal
         show={show}
         onHide={handleClose}
         size="lg"
         dialogClassName="custom-dialog"
-        // restoreFocus={false}
+        animation={false}
+        restoreFocus={false}
+        autoFocus={false}
+        enforceFocus={false}
       >
-        {/* <img
-          src={projectCard.imageUrl}
-          alt={projectCard.imageUrl}
-          style={{ height: "375px", width: "100%", objectFit: "cover" }}
-        ></img> */}
         <Modal.Header
           style={{
             backgroundColor: projectCard.themeColor,
@@ -75,8 +99,8 @@ export default function ProjectCard(props) {
             </div>
             <Fade
               style={{ display: "inline-block" }}
+              delay={isSmallScreenHeight ? 0.01 : projectCard.desc.length * 500}
               cascade={true}
-              delay={projectCard.desc.length * 500}
               damping={0.15}
               triggerOnce={true}
             >
@@ -99,7 +123,7 @@ export default function ProjectCard(props) {
           <div style={{ float: "left", padding: "0px 25px" }}>
             <Button
               className="github-button"
-              onClick={()=> window.open(projectCard.githubLink, "_blank")}
+              onClick={() => window.open(projectCard.githubLink, "_blank")}
               style={{
                 border: "1px solid black",
                 backgroundColor: "transparent",
@@ -133,8 +157,10 @@ export default function ProjectCard(props) {
           </div>
         </div>
       </Modal>
-      <div>
+
+      <div onMouseOver={() => handleMouseOver()} onClick={() => handleOnClick()}>
         <HoverCard
+          ref={cardRef}
           style={{
             color: "white",
             width: isExtraSmallScreenWidth ? "90vw" : "24.59rem",

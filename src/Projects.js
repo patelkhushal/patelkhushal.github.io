@@ -49,9 +49,9 @@ export default function Projects() {
     {
       name: "Lecture Hall Finder",
       desc: [
-        "Developed a WebApp that help students search for empty lecture halls in York University that can be used as study rooms when library rooms are full",
+        "Developed a WebApp that helps students search for empty lecture halls in York University that can be used as study rooms when library rooms are full",
         "Data was scrapped and cleaned from York University website which shows the schedules of all the classes using Python",
-        "Created a user-friendly UI that allows user to filter empty lecture halls by building and/or by specific time and date using Angular and ExpressJS",
+        "Created a user-friendly UI that allows user to filter empty lecture halls by York buildings and/or by specific date and time using Angular and ExpressJS",
       ],
       miniTechStack: ["Python", "Angular", "Redis"],
       techStack: ["Python", "Angular", "Redis", "NodeJS", "Heroku"],
@@ -63,7 +63,6 @@ export default function Projects() {
       name: "Portfolio Website",
       desc: [
         "Designed a portfolio website focusing on UX/UI",
-        // "Feedbacks / Critics are always welcome. Shoot me a message!",
         "Major shout-out to all the awesome open source React libraries out there!"
       ],
       miniTechStack: ["React"],
@@ -101,7 +100,7 @@ export default function Projects() {
       desc: [
         "Performed data analytics on various hotel reviews to allow different hotels make data-driven decisions",
         "Data cleaning and sentiment analysis were performed on multiple data sets to pinpoint hotel's pain points",
-        "Data trends were visualized using Tableau to study whether factors like weather, date and global / local events affect customer's reviews",
+        "Reviews trends were visualized using Tableau to study whether factors like weather, date and global / local events affect customer's reviews",
       ],
       miniTechStack: ["Python", "Tableau", "NLP"],
       techStack: ["Python", "Spark", "NLP", "Hadoop", "Tableau"],

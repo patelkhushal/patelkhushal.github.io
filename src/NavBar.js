@@ -11,41 +11,42 @@ export default function NavBar() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 991px)' })
 
-  const linkElements = ["home", "about", "timeline", "projects", "skills", "contact"];
-  const iconLabels = [
-    "Home",
-    "About",
-    "Timeline",
-    "Projects",
-    "Skills",
-    "Contact",
-  ];
-  const linkElementsIcons = [
-    AiFillHome,
-    RiUser3Fill,
-    RiFootprintFill,
-    AiFillAppstore,
-    RiStackFill,
-    IoMdChatbubbles,
-  ];
-
-  const IconTag = (iconIndex) => {
-    return React.createElement(linkElementsIcons[iconIndex], null, "");
-  };
+  const linkElements = {
+    Home: {
+      scrollElementName: "home",
+      icon: AiFillHome,
+    },
+    About: {
+      scrollElementName: "about",
+      icon: RiUser3Fill
+    },
+    Timeline: {
+      scrollElementName: "timeline",
+      icon: RiFootprintFill
+    },
+    Projects: {
+      scrollElementName: "projects",
+      icon: AiFillAppstore,
+    },
+    Skills: {
+      scrollElementName: "skills",
+      icon: RiStackFill,
+    },
+    Contact: {
+      scrollElementName: "contact",
+      icon: IoMdChatbubbles
+    }
+  }
 
   return (
     <Navbar
       id="navbar"
       className="justify-content-center"
       sticky="top"
-      // bg="white"
       variant="dark"
       expand="lg"
-      // style={{ minHeight: "7.12vh" }}
       onToggle={() => setIsNavExpanded(!isNavExpanded)}
-      // onSelect={() => setIsNavExpanded((currentIsNavExpanded) => !currentIsNavExpanded)}
-      // onToggle={setIsNavExpanded(currentIsNavExpanded => !currentIsNavExpanded)}
-      expanded={isNavExpanded}
+      expanded={ isNavExpanded }
     >
       <Navbar.Toggle id="responsive-navbar-toggle" />
       <Navbar.Collapse
@@ -53,25 +54,21 @@ export default function NavBar() {
         className="justify-content-center"
       >
         <Nav>
-          {linkElements.map((linkElementName, index) => {
+          {Object.keys(linkElements).map((linkElement, index) => {
             return (
               <Link
                 key={index}
                 className="nav-item zoom"
                 activeClass="active"
-                to={linkElementName}
+                to={linkElements[linkElement].scrollElementName}
                 spy={true}
                 smooth={true}
                 duration={500}
-                // offset={-275}
                 offset={isTabletOrMobile? -275 : -65}
-                // offset={isTabletOrMobile? -275 : -65}
-                // offset={-55}
                 onClick={() => setIsNavExpanded(false)}
-                // onSetInactive={() => setIsNavExpanded(false)}
               >
-                <div className="icon-container">{IconTag(index)}</div>
-                <span style={{ fontSize: "0.9em" }}>{iconLabels[index]}</span>
+                <div className="icon-container">{React.createElement(linkElements[linkElement].icon, null, "")}</div>
+                <span style={{ fontSize: "0.9em" }}>{linkElement}</span>
               </Link>
             );
           })}

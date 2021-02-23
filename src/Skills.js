@@ -63,7 +63,7 @@ export default function Skills() {
     <Element
       name="skills"
       className="with-navbar-component"
-      style={{ backgroundColor: "rgb(241 241 241)", paddingBottom: "60px" }}
+      style={{ backgroundColor: "rgb(241 241 241)", paddingBottom: "68px" }}
     >
       <Container fluid>
         <Row className="justify-content-center pb-3 pt-2">
@@ -78,7 +78,7 @@ export default function Skills() {
         >
           <JackInTheBox
             cascade={breakSkillCardsCascade ? false : true}
-            fraction={0.55}
+            fraction={0.8}
             damping={0.55}
             triggerOnce={true}
           >

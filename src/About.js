@@ -12,12 +12,13 @@ import { BsMusicNoteList } from "react-icons/bs";
 import { GiRingedPlanet, GiPencilBrush, GiCampfire } from "react-icons/gi";
 import { Slide } from "react-awesome-reveal";
 
-import useMobileDeviceCheck from "./useMobileDeviceCheck"
+import useMobileDeviceCheck from "./useMobileDeviceCheck";
 
 import ProfilePicture from "./assets/images/ProfilePicture.jpg";
 import MachineLearningImage from "./assets/images/MachineLearning.svg";
 import DataAnalyticsImage from "./assets/images/DataAnalytics.svg";
 import BlockChainImage from "./assets/images/BlockChain.svg";
+import FullStackImage from "./assets/images/FullStack.png";
 
 export default function About() {
   const breakLgScreenFlipCards = useMediaQuery({
@@ -74,7 +75,7 @@ export default function About() {
           <h4 style={{ paddingBottom: "23px" }}>About Me</h4>
         </Row>
         <Row>
-          <Col md="auto" style={{ textAlign: "center",  paddingBottom:"15px"}}>
+          <Col md="auto" style={{ textAlign: "center", paddingBottom: "15px" }}>
             <Slide direction="left" triggerOnce={true}>
               <div>
                 <img
@@ -112,7 +113,7 @@ export default function About() {
               <Slide direction="right" triggerOnce={true}>
                 <Row
                   className="justify-content-center"
-                  style={{ paddingBottom: "10px", paddingTop:"35px" }}
+                  style={{ paddingBottom: "10px", paddingTop: "35px" }}
                 >
                   <p>
                     Recently, I have been intrigued by these technologies and
@@ -120,38 +121,54 @@ export default function About() {
                   </p>
                 </Row>
                 <Row>
-                  <Col style={{paddingTop: "15px"}}>
+                  <Col style={{ paddingTop: "15px" }}>
                     <img
                       src={MachineLearningImage}
                       alt="ml"
-                      style={{ height: "100px", width: "100px", }}
+                      style={{ height: "100px", width: "100px" }}
                     ></img>
                     <p style={{ paddingTop: "7px", fontWeight: "500" }}>
                       Machine Learning
                     </p>
                   </Col>
-                  <Col style={{paddingTop: "15px"}}>
+                  <Col style={{ paddingTop: "15px" }}>
                     <img
                       src={DataAnalyticsImage}
                       alt="data-analytics"
-                      style={{ height: "100px", width: "100px", }}
+                      style={{ height: "100px", width: "100px" }}
                     ></img>
                     <p style={{ paddingTop: "7px", fontWeight: "500" }}>
                       Data Analytics
                     </p>
                   </Col>
-                  <Col style={{paddingTop: "15px"}}>
+                  <Col style={{ paddingTop: "15px" }}>
                     <img
                       src={BlockChainImage}
                       alt="blockchain"
                       style={{
-                        height: "100px",
-                        width: "100px",
+                        height: "95px",
+                        width: "95px",
+                        marginTop: "5px",
                         backgroundColor: "white",
                       }}
                     ></img>
                     <p style={{ paddingTop: "7px", fontWeight: "500" }}>
                       BlockChain
+                    </p>
+                  </Col>
+                  <Col style={{paddingTop: "15px"}}>
+                    <img
+                      src={FullStackImage}
+                      alt="blockchain"
+                      style={{
+                        height: "90px",
+                        width: "95px",
+                        marginTop: "10px",
+                        backgroundColor: "white",
+                      }}
+                    ></img>
+                    <p style={{ paddingTop: "7px", fontWeight: "500" }}>
+                      Full Stack
                     </p>
                   </Col>
                 </Row>
@@ -168,7 +185,7 @@ export default function About() {
               textAlign: "center",
             }}
           >
-            <p style={{padding:"20px 0px 20px 0px"}}>
+            <p style={{ padding: "20px 0px 20px 0px" }}>
               <span style={{ fontSize: "1.3rem", fontWeight: "550" }}>
                 {" "}
                 Hobbies {"&"} Interests
@@ -182,6 +199,7 @@ export default function About() {
             className="justify-content-center"
             // style={{ marginRight: "0px" }}
           >
+            {/* <Slide direction="up" triggerOnce={true} cascade={isMobile} damping={0.1}> */}
             {flipCards.map((flipCard, index) => {
               return (
                 <Col
@@ -222,7 +240,7 @@ export default function About() {
                       className={
                         isExtraSmallScreenWidth ? "flip-card-xs" : "flip-card"
                       }
-                      style={{ backgroundColor: flipCard[3]}}
+                      style={{ backgroundColor: flipCard[3] }}
                     >
                       <span
                         style={{
@@ -239,6 +257,7 @@ export default function About() {
                 </Col>
               );
             })}
+            {/* </Slide> */}
           </Row>
         </Slide>
       </Container>

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import NavBar from "./NavBar";
-import { Element } from "react-scroll";
 import { Rings } from "svg-loaders-react";
 
 import Home from "./Home";
@@ -13,45 +12,27 @@ import Contact from "./Contact"
 
 function App() {
   const [loading, setLoading] = useState(true);
-  // const [homeCompHeight, setHomeCompHeight] = useState(0)
-  // const ref = useRef(null)
-  // const isTabletOrMobile = useMediaQuery({ query: '(max-width: 991px)' })
 
   useEffect(() => {
+    document.body.style = "background: black"; //change background color to black
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
-  const changeBackgroundColor = (color) => {
-    document.body.style = "background:" + color;
-  };
-
   return !loading ? (
     <div className="App">
-      {changeBackgroundColor("black")}
       <Home />
-      {/* {isTabletOrMobile ? <Headroom pinStart={600}><NavBar /></Headroom> : <NavBar />} */}
       <NavBar />
       <About />
       <Timeline />
       <Projects />
       <Skills />
-      {/* <Home /> */}
       <Contact />
     </div>
   ) : (
-    <div
-      className="App"
-      style={{
-        position: "absolute",
-        left: "50%",
-        top: "50%",
-        transform: "translate(-50%, -50%)",
-      }}
-    >
-      {changeBackgroundColor("black")}
+    <div className="App loader">
       <Rings />
     </div>
   );

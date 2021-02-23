@@ -103,6 +103,14 @@ p {
   padding-bottom: 50px;
 }
 
+/* ---------------------------------------------------- APP COMPONENT CSS ---------------------------------------------------- */
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* ---------------------------------------------------- NAVBAR COMPONENT CSS ---------------------------------------------------- */
 
 #responsive-navbar-toggle:focus {
@@ -182,10 +190,10 @@ p {
 /* ---------------------------------------------------- HOME COMPONENT CSS ---------------------------------------------------- */
 
 .loader {
-  position: "absolute";
-  left: "50%";
-  top: "50%";
-  transform: "translate(-50%, -50%)";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #home-background {
@@ -228,7 +236,7 @@ p {
 .side-nav-icon-container {
   display: flex;
   position: relative;
-  font-size: 1.25em;
+  font-size: 1.3em;
 }
 
 .side-nav-item-text {
@@ -308,7 +316,7 @@ p {
   position: absolute;
   bottom: 0%;
   right: 3%;
-  font-size: 1.22rem;
+  font-size: 1.2em;
 }
 
 /* -------------------------------------------------------- About Component CSS -------------------------------------------------------- */
@@ -450,4 +458,14 @@ p {
 }
 .contact-icon-up:hover {
   color: white;
+}
+
+.references{
+  font-size: 14px;
+}
+.references a{
+  color: #76e2de;
+}
+.references a:hover{
+  color: #76e2de;
 }

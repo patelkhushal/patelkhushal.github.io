@@ -10,14 +10,7 @@ import Button from "react-bootstrap/Button";
 import Bounce from "react-reveal/Bounce";
 import Fade from "react-reveal/Fade";
 import Pulse from "react-reveal/Pulse";
-
-// import ParticlesComp from "./ParticlesComp";
-
 import Grow from "@material-ui/core/Grow";
-// import Collapse from "@material-ui/core/Collapse";
-// import Fade from "@material-ui/core/Fade";
-// import Slide from "@material-ui/core/Slide";
-// import Zoom from "@material-ui/core/Zoom";
 
 import {
   AiFillAppstore,
@@ -29,22 +22,52 @@ import { RiUser3Fill, RiStackFill, RiFootprintFill } from "react-icons/ri";
 import { IoMdChatbubbles } from "react-icons/io";
 import { HiMail } from "react-icons/hi";
 import { AiOutlineTwitter } from "react-icons/ai";
+
 import HomeBackgroundImage from "./assets/images/HomeBackgroundImage.jpg";
 
 export default function Home() {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 991px)" });
-  const linkElements = ["about", "timeline", "projects", "skills", "contact"];
-  const iconLabels = ["About", "Timeline", "Projects", "Skills", "Contact"];
-  const linkElementsIcons = [
-    RiUser3Fill,
-    RiFootprintFill,
-    AiFillAppstore,
-    RiStackFill,
-    IoMdChatbubbles,
-  ];
 
-  const IconTag = (iconIndex) => {
-    return React.createElement(linkElementsIcons[iconIndex], null, "");
+  const linkElements = {
+    About: {
+      scrollElementName: "about",
+      icon: RiUser3Fill
+    },
+    Timeline: {
+      scrollElementName: "timeline",
+      icon: RiFootprintFill
+    },
+    Projects: {
+      scrollElementName: "projects",
+      icon: AiFillAppstore,
+    },
+    Skills: {
+      scrollElementName: "skills",
+      icon: RiStackFill,
+    },
+    Contact: {
+      scrollElementName: "contact",
+      icon: IoMdChatbubbles
+    }
+  }
+
+  const contactIcons = {
+    LinkedIn: {
+      icon: AiFillLinkedin,
+      link: "https://www.linkedin.com/in/khushal-patel/",
+    },
+    Mail: {
+      icon: HiMail,
+      link: "mailto:patelbapu128@gmail.com",
+    },
+    Github: {
+      icon: AiFillGithub,
+      link: "https://github.com/patelkhushal",
+    },
+    Twitter: {
+      icon: AiOutlineTwitter,
+      link: "https://twitter.com/Khushal34837340",
+    },
   };
 
   return (
@@ -58,31 +81,28 @@ export default function Home() {
             paddingRight: 0,
             height: "100vh",
             position: "relative",
-            // height: "93.11vh",
-            // display: "block",
           }}
         >
-          {/* <ParticlesComp /> */}
           <div
             id="home-background"
             style={{ backgroundImage: "url(" + HomeBackgroundImage + ")" }}
           ></div>
           <Fade left delay={2200}>
             <div id="side-nav">
-              {linkElements.map((linkElementName, index) => {
+              {Object.keys(linkElements).map((linkElement, index) => {
                 return (
                   <div className="side-nav-icon-container" key={index}>
                     <Link
                       className="side-nav-item zoom"
-                      to={linkElementName}
+                      to={linkElements[linkElement].scrollElementName}
                       smooth={true}
                       duration={500}
                       offset={-55}
                     >
-                      <div>{IconTag(index)}</div>
+                      <div>{React.createElement(linkElements[linkElement].icon, null, "")}</div>
                     </Link>
                     <div className="side-nav-item-text">
-                      {iconLabels[index]}
+                      {linkElement}
                     </div>
                   </div>
                 );
@@ -128,52 +148,20 @@ export default function Home() {
           <Fade right delay={2200}>
             <div id="bottom-bar-contact">
               <div className="side-nav-icon-container">
-                <span className="side-nav-item zoom">
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/khushal-patel/"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: "inherit", color: "inherit" }}
-                  >
-                    <AiFillLinkedin />
-                  </a>
-                </span>
-              </div>
-              <div className="side-nav-icon-container">
-                <span className="side-nav-item zoom">
-                  <a
-                    target="_blank"
-                    href="https://github.com/patelkhushal"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: "inherit", color: "inherit" }}
-                  >
-                    <AiFillGithub />
-                  </a>
-                </span>
-              </div>
-              <div className="side-nav-icon-container">
-                <span className="side-nav-item zoom">
-                  <a
-                    target="_blank"
-                    href="mailto:patelbapu128@gmail.com"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: "inherit", color: "inherit" }}
-                  >
-                    <HiMail />
-                  </a>
-                </span>
-              </div>
-              <div className="side-nav-icon-container">
-                <span className="side-nav-item zoom">
-                  <a
-                    target="_blank"
-                    href="https://twitter.com/Khushal34837340"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: "inherit", color: "inherit" }}
-                  >
-                    <AiOutlineTwitter />
-                  </a>
-                </span>
+                {Object.keys(contactIcons).map((contact, index) => {
+                  return (
+                    <span className="side-nav-item zoom">
+                      <a
+                        target="_blank"
+                        href={contactIcons[contact].link}
+                        rel="noopener noreferrer"
+                        style={{ textDecoration: "inherit", color: "inherit" }}
+                      >
+                        {React.createElement(contactIcons[contact].icon, null, "")}
+                      </a>
+                    </span>
+                  );
+                })}
               </div>
             </div>
           </Fade>

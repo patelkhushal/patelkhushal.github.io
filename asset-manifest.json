@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.91f52b01.chunk.css",
-    "main.js": "/static/js/main.800821ca.chunk.js",
-    "main.js.map": "/static/js/main.800821ca.chunk.js.map",
+    "main.js": "/static/js/main.1c4ca9de.chunk.js",
+    "main.js.map": "/static/js/main.1c4ca9de.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.4d1fae87.js",
     "runtime-main.js.map": "/static/js/runtime-main.4d1fae87.js.map",
     "static/css/2.a9b6c0ab.chunk.css": "/static/css/2.a9b6c0ab.chunk.css",
@@ -43,18 +43,18 @@
     "static/media/Jenkins.997288fc.jpg": "/static/media/Jenkins.997288fc.jpg",
     "static/media/LassondeLogo.11e42801.png": "/static/media/LassondeLogo.11e42801.png",
     "static/media/LectureHallFinder.2883850c.jpg": "/static/media/LectureHallFinder.2883850c.jpg",
-    "static/media/LibraryEPurchases.a9b7fc2e.jpeg": "/static/media/LibraryEPurchases.a9b7fc2e.jpeg",
     "static/media/MachineLearning.df32dd30.svg": "/static/media/MachineLearning.df32dd30.svg",
     "static/media/Matrix.e487a714.jpg": "/static/media/Matrix.e487a714.jpg",
     "static/media/Mongo.41634622.png": "/static/media/Mongo.41634622.png",
     "static/media/NLTK.88c71e8e.png": "/static/media/NLTK.88c71e8e.png",
     "static/media/Node.bfa23d83.png": "/static/media/Node.bfa23d83.png",
     "static/media/PortfolioWebsite.12e3fc19.jpg": "/static/media/PortfolioWebsite.12e3fc19.jpg",
-    "static/media/ProfilePicture.f78133db.jpg": "/static/media/ProfilePicture.f78133db.jpg",
+    "static/media/ProfilePicture.f0d8f59d.jpg": "/static/media/ProfilePicture.f0d8f59d.jpg",
     "static/media/Programming.586c27ea.jpeg": "/static/media/Programming.586c27ea.jpeg",
     "static/media/Python.f22d1fce.png": "/static/media/Python.f22d1fce.png",
     "static/media/React.05e48353.png": "/static/media/React.05e48353.png",
     "static/media/Redis.e47513cb.webp": "/static/media/Redis.e47513cb.webp",
+    "static/media/Redux.b3b939c6.png": "/static/media/Redux.b3b939c6.png",
     "static/media/SQL.8abbab3c.png": "/static/media/SQL.8abbab3c.png",
     "static/media/Spark.55877755.png": "/static/media/Spark.55877755.png",
     "static/media/StayHomeRewards.a01c788c.jpg": "/static/media/StayHomeRewards.a01c788c.jpg",
@@ -62,13 +62,14 @@
     "static/media/TutorDoctorLogo.a81949b1.png": "/static/media/TutorDoctorLogo.a81949b1.png",
     "static/media/Twitter.b413b75b.png": "/static/media/Twitter.b413b75b.png",
     "static/media/TwitterUserProfiler.71776572.png": "/static/media/TwitterUserProfiler.71776572.png",
-    "static/media/Typescript.16240f48.png": "/static/media/Typescript.16240f48.png"
+    "static/media/Typescript.16240f48.png": "/static/media/Typescript.16240f48.png",
+    "static/media/WeatherInfo.d2762cf1.jpg": "/static/media/WeatherInfo.d2762cf1.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.4d1fae87.js",
     "static/css/2.a9b6c0ab.chunk.css",
     "static/js/2.9baabeff.chunk.js",
     "static/css/main.91f52b01.chunk.css",
-    "static/js/main.800821ca.chunk.js"
+    "static/js/main.1c4ca9de.chunk.js"
   ]
 }

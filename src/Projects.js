@@ -19,7 +19,7 @@ import CityWeatherAnalytics from "./assets/images/CityWeatherAnalytics.jpg";
 import StayHomeRewards from "./assets/images/StayHomeRewards.jpg";
 import BitcoinTestnetUtility from "./assets/images/BitcoinTestnetUtility.jpg";
 import ImageEditor from "./assets/images/ImageEditor.jpg";
-import LibraryEPurchases from "./assets/images/LibraryEPurchases.jpeg";
+import WeatherInfo from "./assets/images/WeatherInfo.jpg";
 import PortfolioWebsite from "./assets/images/PortfolioWebsite.jpg";
 
 export default function Projects() {
@@ -71,6 +71,19 @@ export default function Projects() {
       themeColor: "rgb(74 79 74)",
       githubLink: "https://github.com/patelkhushal/patelkhushal.github.io"
     },
+    {
+      name: "Weather Info",
+      desc: [
+        "Developed an interactive WebApp that allows user to look for current weather conditions for different cities using React and Open Weather API",
+        "The WebApp also shows user's recent searches using Redux",
+        "Main focus of this project was to learn React with Redux"
+      ],
+      miniTechStack: ["React", "Redux"],
+      techStack: ["React", "Redux"],
+      imageUrl: WeatherInfo,
+      themeColor: "rgb(93 60 99)",
+      githubLink: "https://github.com/patelkhushal/WeatherInfo"
+    },
   ];
   const dataAnalyticsProjects = [
     {
@@ -100,12 +113,12 @@ export default function Projects() {
       desc: [
         "Performed data analytics on various hotel reviews to allow different hotels make data-driven decisions",
         "Data cleaning and sentiment analysis were performed on multiple data sets to pinpoint hotel's pain points",
-        "Reviews trends were visualized using Tableau to study whether factors like weather, date and global / local events affect customer's reviews",
+        "Reviews trends were visualized using Tableau to study if factors like weather, date and global / local events affect customer's reviews",
       ],
       miniTechStack: ["Python", "Tableau", "NLP"],
       techStack: ["Python", "Spark", "NLP", "Hadoop", "Tableau"],
       imageUrl: HotelReviewsAnalyzer,
-      themeColor: "rgb(74 43 28)",
+      themeColor: "rgb(7 78 101)", //rgb(6 71 93)
       githubLink: "https://github.com/patelkhushal"
     },
     {
@@ -115,11 +128,11 @@ export default function Projects() {
         // "After data cleaning and deep analysis of different city's weather, an increasing trend in temperature was discovered which suggests global warming",
         "The tool allows user to pass in various parameters like city name, longitude / latitude and date range to perform customized data analysis"
       ],
-      miniTechStack: ["Python", "NLP"],
-      techStack: ["Python", "NLP"],
+      miniTechStack: ["Python"],
+      techStack: ["Python"],
       imageUrl: CityWeatherAnalytics,
       themeColor: "rgb(158 36 104)",
-      githubLink: "https://github.com/patelkhushal"
+      githubLink: "https://github.com/patelkhushal/weather-analytics"
     },
   ];
 
@@ -161,18 +174,6 @@ export default function Projects() {
       imageUrl: ImageEditor,
       themeColor: "rgb(19 128 55)",
       githubLink: "https://github.com/patelkhushal/image-editor"
-    },
-    {
-      name: "Library ePurchase",
-      desc: [
-        "Developed an interactive database management application that allows customers to browse, hold and purchase eBooks from a library",
-        "Created complex SQL scripts to populate & manipulate the backend database"
-      ],
-      miniTechStack: ["Java", "DB2"],
-      techStack: ["Java", "DB2"],
-      imageUrl: LibraryEPurchases,
-      themeColor: "rgb(91 54 36)",
-      githubLink: "https://github.com/patelkhushal"
     },
   ];
 

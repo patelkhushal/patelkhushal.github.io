@@ -83,8 +83,10 @@ export default function About() {
                   alt="ProfilePicture"
                   style={{
                     height: "300px",
-                    width: "250px",
+                    width: "275px",
                     borderRadius: "50%",
+                    objectFit: "cover",
+                    // backgroundPosition: "50% 50%"
                   }}
                 ></img>
               </div>
@@ -100,7 +102,7 @@ export default function About() {
                 Who Am I?
               </h5>
               <p>
-                I am a Software Developer based in Toronto, CA. I have serious
+                I am a Software Developer based in Toronto, CA. I have a serious
                 passion for learning new technologies and applying them to solve
                 complex world problems. Having 3+ years of professional
                 experience, I was fortunate enough to work on interesting
@@ -159,11 +161,11 @@ export default function About() {
                   <Col style={{paddingTop: "15px"}}>
                     <img
                       src={FullStackImage}
-                      alt="blockchain"
+                      alt="fullstack"
                       style={{
-                        height: "90px",
+                        height: "93px",
                         width: "95px",
-                        marginTop: "10px",
+                        marginTop: "7px",
                         backgroundColor: "white",
                       }}
                     ></img>

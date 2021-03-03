@@ -28,6 +28,8 @@ export default function ProjectCard(props) {
   const handleClose = () => setShow(false); 
   const handleShow = () => setShow(true);
 
+  // const [showBorder, setShowBorder] = useState(false)
+
   const cardRef = useRef(null)
   const handleOnClick = () => {
     if(!cardRef.current.state.isHover){
@@ -36,11 +38,15 @@ export default function ProjectCard(props) {
   }
 
   const handleMouseOver = () => {
-    console.log("in")
+    // setShowBorder(true)
     if(!cardRef.current.state.isHover){
       cardRef.current.setState({isHover: true})
     }
   }
+
+  // const handleMouseOut = () => {
+  //   setShowBorder(false)
+  // }
 
   return (
     <div>
@@ -109,8 +115,8 @@ export default function ProjectCard(props) {
                   <TechIcon
                     iconName={tech}
                     padding="10px 18px 0px 18px"
-                    iconWidth="40px"
-                    iconHeight="40px"
+                    iconWidth="42px"
+                    iconHeight={tech === "React" || tech === "React Native" || tech === "Redux" ? "40px" : "42px"}
                     labelSize="15.5px"
                   ></TechIcon>
                 );
@@ -165,6 +171,7 @@ export default function ProjectCard(props) {
             color: "white",
             width: isExtraSmallScreenWidth ? "90vw" : "24.59rem",
             maxHeight: "285px",
+            // border: showBorder ? "1px solid " + projectCard.themeColor : "0px solid black",
           }}
           front={
             <div

@@ -34,6 +34,7 @@ import TwitterLogo from "./assets/images/Twitter.png";
 // import BlockChainImage from "./assets/images/BlockChain.svg";
 import BlockCypherLogo from "./assets/images/BlockCypher.png";
 import JSwingLogo from "./assets/images/JSwing.png"
+import ReduxLogo from "./assets/images/Redux.png"
 
 export default function TechIcon({iconName, padding, iconWidth, iconHeight, labelSize}) {
   const TechIcons = {
@@ -69,6 +70,7 @@ export default function TechIcon({iconName, padding, iconWidth, iconHeight, labe
     Tableau: TableauLogo,
     "Twitter API": TwitterLogo,
     Typescript: TypescriptLogo,
+    Redux: ReduxLogo,
   };
 
   const breakSkillCardsWidth = useMediaQuery({

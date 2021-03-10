@@ -27,42 +27,57 @@ export default function About() {
   const isExtraSmallScreenWidth = useMediaQuery({
     query: "(max-width: 359px)",
   });
+  const xSmallProfileImage = useMediaQuery({
+    query: "(max-width: 295px)",
+  });
   const isMobile = useMobileDeviceCheck();
 
-  //flipCards (2d array) format: [ [label, icon, back-text, background-color],... ]
-  const flipCards = [
-    [
-      "Movies & TV Shows",
-      RiNetflixFill,
-      "Sci-Fi, Fantasy, Action, Sitcoms, Anime, KDrama, You Name it!",
-      "rgb(204 29 29)",
-    ],
-    ["Trading", FaDollarSign, "Cryptos and Stocks", "rgb(49 160 58)"],
-    [
-      "International Music",
-      BsMusicNoteList,
-      "Bollywood, Kpop, Jpop and Spanish Music",
-      "rgb(202 39 122)",
-    ],
-    [
-      "Hiking",
-      GiCampfire,
-      "Hiking, Camping, and Stargazing",
-      "rgb(25 131 162)",
-    ],
-    [
-      "Sketching",
-      GiPencilBrush,
-      "Mostly Landscapes and Anime portraits",
-      "rgb(108 66 177)",
-    ],
-    [
-      "Astronomy",
-      GiRingedPlanet,
-      "Parallel universe, Dark Matter, Big Bang, Aliens",
-      "rgb(45 42 40)",
-    ],
+  //array of JSON objects of hobbies and interests
+  const hobbies = [
+    {
+      name: "Movies & TV Shows",
+      icon: RiNetflixFill,
+      desc: "Sci-Fi, Fantasy, Action, Sitcoms, Anime, KDrama, You Name it!",
+      color: "rgb(204 29 29)",
+    },
+    {
+      name: "Trading",
+      icon: FaDollarSign,
+      desc: "Cryptos and Stocks",
+      color: "rgb(49 160 58)",
+    },
+    {
+      name: "International Music",
+      icon: BsMusicNoteList,
+      desc: "Bollywood, Kpop, Jpop and Spanish Music",
+      color: "rgb(202 39 122)",
+    },
+    {
+      name: "Hiking",
+      icon: GiCampfire,
+      desc: "Hiking, Camping, and Stargazing",
+      color: "rgb(25 131 162)",
+    },
+    {
+      name: "Sketching",
+      icon: GiPencilBrush,
+      desc: "Mostly Landscapes and Anime portraits",
+      color: "rgb(108 66 177)",
+    },
+    {
+      name: "Astronomy",
+      icon: GiRingedPlanet,
+      desc: "Parallel universe, Dark Matter, Big Bang, Aliens",
+      color: "rgb(45 42 40)",
+    },
   ];
+
+  const interestingTechnologies = {
+    "Machine Learning": MachineLearningImage,
+    "Data Analytics": DataAnalyticsImage,
+    BlockChain: BlockChainImage,
+    "Full Stack": FullStackImage,
+  };
 
   const IconTag = (iconName) => {
     return React.createElement(iconName, null, "");
@@ -82,11 +97,10 @@ export default function About() {
                   src={ProfilePicture}
                   alt="ProfilePicture"
                   style={{
-                    height: "300px",
-                    width: "275px",
+                    height: xSmallProfileImage? "80vw" : "285px",
+                    width: xSmallProfileImage? "80vw" : "260px",
                     borderRadius: "50%",
                     objectFit: "cover",
-                    // backgroundPosition: "50% 50%"
                   }}
                 ></img>
               </div>
@@ -123,56 +137,22 @@ export default function About() {
                   </p>
                 </Row>
                 <Row>
-                  <Col style={{ paddingTop: "15px" }}>
-                    <img
-                      src={MachineLearningImage}
-                      alt="ml"
-                      style={{ height: "100px", width: "100px" }}
-                    ></img>
-                    <p style={{ paddingTop: "7px", fontWeight: "500" }}>
-                      Machine Learning
-                    </p>
-                  </Col>
-                  <Col style={{ paddingTop: "15px" }}>
-                    <img
-                      src={DataAnalyticsImage}
-                      alt="data-analytics"
-                      style={{ height: "100px", width: "100px" }}
-                    ></img>
-                    <p style={{ paddingTop: "7px", fontWeight: "500" }}>
-                      Data Analytics
-                    </p>
-                  </Col>
-                  <Col style={{ paddingTop: "15px" }}>
-                    <img
-                      src={BlockChainImage}
-                      alt="blockchain"
-                      style={{
-                        height: "95px",
-                        width: "95px",
-                        marginTop: "5px",
-                        backgroundColor: "white",
-                      }}
-                    ></img>
-                    <p style={{ paddingTop: "7px", fontWeight: "500" }}>
-                      BlockChain
-                    </p>
-                  </Col>
-                  <Col style={{paddingTop: "15px"}}>
-                    <img
-                      src={FullStackImage}
-                      alt="fullstack"
-                      style={{
-                        height: "93px",
-                        width: "95px",
-                        marginTop: "7px",
-                        backgroundColor: "white",
-                      }}
-                    ></img>
-                    <p style={{ paddingTop: "7px", fontWeight: "500" }}>
-                      Full Stack
-                    </p>
-                  </Col>
+                  {Object.keys(interestingTechnologies).map(
+                    (technology, index) => {
+                      return (
+                        <Col style={{ paddingTop: "15px" }} key={index}>
+                          <img
+                            src={interestingTechnologies[technology]}
+                            alt="ml"
+                            style={{ height: "92px", width: "92px" }}
+                          ></img>
+                          <p style={{ paddingTop: "7px", fontWeight: "500" }}>
+                            {technology}
+                          </p>
+                        </Col>
+                      );
+                    }
+                  )}
                 </Row>
               </Slide>
             </div>
@@ -188,7 +168,7 @@ export default function About() {
             }}
           >
             <p style={{ padding: "20px 0px 20px 0px" }}>
-              <span style={{ fontSize: "1.3rem", fontWeight: "550" }}>
+              <span style={{ fontSize: "20.8px", fontWeight: "550" }}>
                 {" "}
                 Hobbies {"&"} Interests
               </span>
@@ -202,7 +182,7 @@ export default function About() {
             // style={{ marginRight: "0px" }}
           >
             {/* <Slide direction="up" triggerOnce={true} cascade={isMobile} damping={0.1}> */}
-            {flipCards.map((flipCard, index) => {
+            {hobbies.map((hobby, index) => {
               return (
                 <Col
                   md="auto"
@@ -221,20 +201,20 @@ export default function About() {
                         isExtraSmallScreenWidth ? "flip-card-xs" : "flip-card"
                       }
                       style={{
-                        backgroundColor: flipCard[3],
+                        backgroundColor: hobby.color,
                       }}
                     >
-                      <span>{IconTag(flipCard[1])}</span>
+                      <span>{IconTag(hobby.icon)}</span>
                       <span
                         style={{
                           fontSize: isExtraSmallScreenWidth
-                            ? "0.83rem"
-                            : "0.95rem",
+                            ? "13.3px"
+                            : "15.2px",
                           fontWeight: "525",
                           paddingTop: "10px",
                         }}
                       >
-                        {flipCard[0]}
+                        {hobby.name}
                       </span>
                     </FrontSide>
 
@@ -242,17 +222,17 @@ export default function About() {
                       className={
                         isExtraSmallScreenWidth ? "flip-card-xs" : "flip-card"
                       }
-                      style={{ backgroundColor: flipCard[3] }}
+                      style={{ backgroundColor: hobby.color }}
                     >
                       <span
                         style={{
                           fontSize: isExtraSmallScreenWidth
-                            ? "0.65rem"
-                            : "0.82rem",
+                            ? "10.4px"
+                            : "13.2px",
                           fontWeight: "525",
                         }}
                       >
-                        {flipCard[2]}
+                        {hobby.desc}
                       </span>
                     </BackSide>
                   </Flippy>

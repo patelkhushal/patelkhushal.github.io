@@ -27,15 +27,16 @@ import HomeBackgroundImage from "./assets/images/HomeBackgroundImage.jpg";
 
 export default function Home() {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 991px)" });
+  const hideIcons = useMediaQuery({ query: "(max-width: 295px)" });
 
   const linkElements = {
     About: {
       scrollElementName: "about",
-      icon: RiUser3Fill
+      icon: RiUser3Fill,
     },
     Timeline: {
       scrollElementName: "timeline",
-      icon: RiFootprintFill
+      icon: RiFootprintFill,
     },
     Projects: {
       scrollElementName: "projects",
@@ -47,9 +48,9 @@ export default function Home() {
     },
     Contact: {
       scrollElementName: "contact",
-      icon: IoMdChatbubbles
-    }
-  }
+      icon: IoMdChatbubbles,
+    },
+  };
 
   const contactIcons = {
     LinkedIn: {
@@ -88,7 +89,7 @@ export default function Home() {
             style={{ backgroundImage: "url(" + HomeBackgroundImage + ")" }}
           ></div>
           <Fade left delay={2200}>
-            <div id="side-nav">
+            <div id="side-nav" style={{ display: hideIcons ? "none" : "flex" }}>
               {Object.keys(linkElements).map((linkElement, index) => {
                 return (
                   <div className="side-nav-icon-container" key={index}>
@@ -99,11 +100,15 @@ export default function Home() {
                       duration={500}
                       offset={-55}
                     >
-                      <div>{React.createElement(linkElements[linkElement].icon, null, "")}</div>
+                      <div>
+                        {React.createElement(
+                          linkElements[linkElement].icon,
+                          null,
+                          ""
+                        )}
+                      </div>
                     </Link>
-                    <div className="side-nav-item-text">
-                      {linkElement}
-                    </div>
+                    <div className="side-nav-item-text">{linkElement}</div>
                   </div>
                 );
               })}
@@ -146,23 +151,29 @@ export default function Home() {
             </Fade>
           </Container>
           <Fade right delay={2200}>
-            <div id="bottom-bar-contact">
-              <div className="side-nav-icon-container">
-                {Object.keys(contactIcons).map((contact, index) => {
-                  return (
-                    <span className="side-nav-item zoom">
-                      <a
-                        target="_blank"
-                        href={contactIcons[contact].link}
-                        rel="noopener noreferrer"
-                        style={{ textDecoration: "inherit", color: "inherit" }}
-                      >
-                        {React.createElement(contactIcons[contact].icon, null, "")}
-                      </a>
+            <div
+              id="bottom-bar-contact"
+              style={{ display: hideIcons ? "none" : "flex" }}
+            >
+              {Object.keys(contactIcons).map((contact, index) => {
+                return (
+                  <a
+                    target="_blank"
+                    href={contactIcons[contact].link}
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "inherit", color: "inherit", display:"block" }}
+                    className="side-nav-icon-container"
+                  >
+                    <span className="side-nav-item zoom" key={index}>
+                      {React.createElement(
+                        contactIcons[contact].icon,
+                        null,
+                        ""
+                      )}
                     </span>
-                  );
-                })}
-              </div>
+                  </a>
+                );
+              })}
             </div>
           </Fade>
         </Container>

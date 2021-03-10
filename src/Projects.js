@@ -204,6 +204,8 @@ export default function Projects() {
     query: "(max-width: 439px)",
   });
 
+  const noPadding = useMediaQuery({ query: "(max-width: 295px)" });
+
   const handleProjectTypeChange = (event, newProjectType) => {
     //only set new value if current project label button value is different than the newly clicked button value
     if (newProjectType && event.target.innerText !== projectType) {
@@ -243,7 +245,7 @@ export default function Projects() {
                       padding: isExtraSmallScreenWidth
                         ? "6px 15px 6px 15px"
                         : "10px 25px 10px 25px",
-                      fontSize: isExtraSmallScreenWidth ? "3.5vw" : "0.93rem",
+                      fontSize: isExtraSmallScreenWidth ? "3.5vw" : "14.9px",
                     }}
                   >
                     {projectTypeToggleButton}
@@ -258,7 +260,7 @@ export default function Projects() {
             cascade={isMobile ? false : true}
             damping={0.15}
             triggerOnce={true}
-            style={{ display: "block", padding: "7px 18px 7px 18px" }}
+            style={{ display: "block", padding: noPadding ? "0px" : "7px 18px" }}
             duration={700}
           >
             {projectCards.map((projectCard, index) => {

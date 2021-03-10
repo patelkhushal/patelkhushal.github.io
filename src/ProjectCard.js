@@ -1,4 +1,4 @@
-import React, { useState, useRef} from "react";
+import React, { useState, useRef } from "react";
 import { useMediaQuery } from "react-responsive";
 import { HoverCard } from "react-png-hovercard";
 import Button from "@material-ui/core/Button";
@@ -25,24 +25,24 @@ export default function ProjectCard(props) {
   });
 
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false); 
+  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   // const [showBorder, setShowBorder] = useState(false)
 
-  const cardRef = useRef(null)
+  const cardRef = useRef(null);
   const handleOnClick = () => {
-    if(!cardRef.current.state.isHover){
-      cardRef.current.setState({isHover: true})
+    if (!cardRef.current.state.isHover) {
+      cardRef.current.setState({ isHover: true });
     }
-  }
+  };
 
   const handleMouseOver = () => {
     // setShowBorder(true)
-    if(!cardRef.current.state.isHover){
-      cardRef.current.setState({isHover: true})
+    if (!cardRef.current.state.isHover) {
+      cardRef.current.setState({ isHover: true });
     }
-  }
+  };
 
   // const handleMouseOut = () => {
   //   setShowBorder(false)
@@ -89,7 +89,7 @@ export default function ProjectCard(props) {
           <ul>
             <Fade cascade={true} delay={250} damping={0.4} triggerOnce={true}>
               {projectCard.desc.map((descPoint, index) => {
-                return <li style={{ padding: "5px 0px" }}>{descPoint}</li>;
+                return <li style={{ padding: "5px 0px" }} key={index}>{descPoint}</li>;
               })}
             </Fade>
           </ul>
@@ -113,10 +113,17 @@ export default function ProjectCard(props) {
               {projectCard.techStack.map((tech, index) => {
                 return (
                   <TechIcon
+                    key={index}
                     iconName={tech}
                     padding="10px 18px 0px 18px"
                     iconWidth="42px"
-                    iconHeight={tech === "React" || tech === "React Native" || tech === "Redux" ? "40px" : "42px"}
+                    iconHeight={
+                      tech === "React" ||
+                      tech === "React Native" ||
+                      tech === "Redux"
+                        ? "40px"
+                        : "42px"
+                    }
                     labelSize="15.5px"
                   ></TechIcon>
                 );
@@ -126,24 +133,26 @@ export default function ProjectCard(props) {
         </Modal.Body>
         <hr style={{ borderTop: "1px solid #cacaca", width: "96%" }} />
         <div style={{ padding: "2px 10px 14px 6px" }}>
-          <div style={{ float: "left", padding: "0px 25px" }}>
-            <Button
-              className="github-button"
-              onClick={() => window.open(projectCard.githubLink, "_blank")}
-              style={{
-                border: "1px solid black",
-                backgroundColor: "transparent",
-                padding: "1px 14px",
-              }}
-            >
-              <div style={{ display: "inline-block", fontSize: "13px" }}>
-                Source Code
-              </div>
-              <div style={{ padding: "0px 0px 5.6px 7px", fontSize: "20px" }}>
-                <GrGithub />
-              </div>
-            </Button>
-          </div>
+          {projectCard.name !== "Hotel Reviews Analyzer" && (
+            <div style={{ float: "left", padding: "0px 25px" }}>
+              <Button
+                className="github-button"
+                onClick={() => window.open(projectCard.githubLink, "_blank")}
+                style={{
+                  border: "1px solid black",
+                  backgroundColor: "transparent",
+                  padding: "1px 14px",
+                }}
+              >
+                <div style={{ display: "inline-block", fontSize: "13px" }}>
+                  Source Code
+                </div>
+                <div style={{ padding: "0px 0px 5.6px 7px", fontSize: "20px" }}>
+                  <GrGithub />
+                </div>
+              </Button>
+            </div>
+          )}
           <div
             className="close-button-container"
             style={{ float: "right", padding: "0px 0px 3px 0px" }}
@@ -156,7 +165,7 @@ export default function ProjectCard(props) {
                 color: "#e2e2e2",
               }}
             >
-              <div className="close-icon" style={{ fontSize: "1.2rem" }}>
+              <div className="close-icon" style={{ fontSize: "19.2px" }}>
                 <RiCloseFill />
               </div>
             </Button>
@@ -164,7 +173,10 @@ export default function ProjectCard(props) {
         </div>
       </Modal>
 
-      <div onMouseOver={() => handleMouseOver()} onClick={() => handleOnClick()}>
+      <div
+        onMouseOver={() => handleMouseOver()}
+        onClick={() => handleOnClick()}
+      >
         <HoverCard
           ref={cardRef}
           style={{
@@ -194,8 +206,10 @@ export default function ProjectCard(props) {
               <div
                 style={{
                   textAlign: "center",
-                  padding: "0.75rem 0rem 0.2rem 0rem",
+                  padding: "12px 0 3.2px 0",
                   fontWeight: "500",
+                  // display:"flex",
+                  // verticalAlign: "middle"
                 }}
               >
                 {projectCard.name}
@@ -232,13 +246,13 @@ export default function ProjectCard(props) {
                 style={{
                   color: projectCard.themeColor,
                   fontWeight: "500",
-                  fontSize: "1.05rem",
+                  fontSize: "16.8px",
                   padding: "5px 0px 15px 0px",
                 }}
               >
                 {projectCard.miniTechStack.map((tech, index) => {
                   return (
-                    <span>
+                    <span key={index}>
                       {index === projectCard.miniTechStack.length - 1
                         ? tech
                         : tech + " / "}
@@ -263,7 +277,7 @@ export default function ProjectCard(props) {
                 <span
                   style={{
                     textTransform: "none",
-                    fontSize: "1.1rem",
+                    fontSize: "17.6px",
                   }}
                 >
                   Learn More

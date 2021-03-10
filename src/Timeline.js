@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Element } from "react-scroll";
+import { useMediaQuery } from "react-responsive";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -15,18 +16,16 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import useMobileDeviceCheck from "./useMobileDeviceCheck";
 
 import LassondeLogo from './assets/images/LassondeLogo.png';
 import TutorDoctorLogo from './assets/images/TutorDoctorLogo.png';
 import IBMLogo from './assets/images/IBMLogo.jpg';
-// import { Fade, AttentionSeeker, Slide, Bounce } from "react-awesome-reveal";
-// import {
-//   Fade as FadeReactReveal,
-//   Bounce as BounceReactReveal,
-// } from "react-reveal";
 
 export default function Timeline() {
   const [inView, setInView] = useState(false); //to check if the last timeline element is displayed so we can stop the animation after that. This is to trigger thr <VerticalTimeline> component to use animation only once
+  const breakImageLevel = useMediaQuery({ query: "(max-width: 335px)" });
+  const xSmallFontSize = useMediaQuery({ query: "(max-width: 250px)" });
   const isMobile = useMobileDeviceCheck();
 
   const getContentStyle = (borderColor) => {
@@ -94,16 +93,12 @@ export default function Timeline() {
     },
   ];
 
-  // const ConditionalWrapper = ({ condition, wrapper, children }) =>
-  //   condition ? wrapper(children) : children;
-
   return (
     <Element
       name="timeline"
       className="with-navbar-component"
       style={{ backgroundColor: "rgb(232 232 232)" }}
     >
-      {/* <FadeReactReveal right when={isMobile}> */}
       <Container>
         <h4 align="center">Timeline</h4>
         <br></br>
@@ -111,14 +106,6 @@ export default function Timeline() {
         <VerticalTimeline animate={inView || isMobile ? false : true}>
           {timelineCards.map((timelineCard, index) => {
             return (
-              // <ConditionalWrapper
-              //   condition={isMobile}
-              //   wrapper={(children) => (
-              //     <FadeReactReveal right>
-              //       {children}
-              //     </FadeReactReveal>
-              //   )}
-              // >
                 <VerticalTimelineElement
                   key={index}
                   contentStyle={timelineCard.contentStyle}
@@ -129,23 +116,23 @@ export default function Timeline() {
                   icon={timelineCard.icon}
                 >
                   <Container>
-                    <Row>
-                      <Col xs={8} md={8} lg={8}>
+                    <Row xs={breakImageLevel ? 1 : 2} sm={2} md={2} lg={2} style={{overflow: xSmallFontSize ? "scroll" : "visible"}}>
+                      <Col>
                         {/* <h5>{timelineCard.header}</h5> */}
-                        <div style={{fontSize: "large", fontWeight: "525"}}>{timelineCard.header}</div>
-                        <p style={{fontSize: "0.92rem", padding:"10px 0 10px 0"}}>{timelineCard.subHeader}</p>
+                        <div style={{fontSize: xSmallFontSize ? "14px" : "large", fontWeight: "525"}}>{timelineCard.header}</div>
+                        <p style={{fontSize: xSmallFontSize ? "12px" : "14.72px", padding:"10px 0 10px 0"}}>{timelineCard.subHeader}</p>
                       </Col>
                       <Col className="timeline-logo-container">
                         <img
                           src={timelineCard.imageSrc}
                           alt={timelineCard.header}
                           className="timeline-logo"
+                          style={{maxHeight: breakImageLevel ? "75px" : "100px", maxWidth: breakImageLevel ? "75px" : "100px",}}
                         ></img>
                       </Col>
                     </Row>
                   </Container>
                 </VerticalTimelineElement>
-              // </ConditionalWrapper>
             );
           })}
         </VerticalTimeline>
@@ -155,31 +142,6 @@ export default function Timeline() {
           <div style={{ display: "none" }}></div>
         </InView>
       </Container>
-      {/* </FadeReactReveal> */}
     </Element>
   );
-}
-
-// Hook to detect mobile devices
-function useMobileDeviceCheck() {
-  const [isMobileDevice, setIsMobileDevice] = useState(false);
-
-  useEffect(() => {
-    // Handler to call on window resize
-    function handleResize() {
-      // Detect if current device is mobile
-      setIsMobileDevice(!!navigator.maxTouchPoints);
-    }
-
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-
-    // Call handler right away so state gets updated with initial device type
-    handleResize();
-
-    // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty array ensures that effect is only run on mount
-
-  return isMobileDevice;
 }

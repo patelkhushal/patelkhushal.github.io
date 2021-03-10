@@ -59,6 +59,10 @@ export default function Skills() {
     query: "(max-width: 1500px)",
   });
 
+  const xSmallLabel = useMediaQuery({
+    query: "(max-width: 195px)",
+  });
+
   return (
     <Element
       name="skills"
@@ -91,6 +95,8 @@ export default function Skills() {
                     alignContent: "center",
                     display: "flex",
                     paddingBottom: "65px",
+                    paddingLeft: xSmallLabel ? "0px" : "15px",
+                    paddingRight: xSmallLabel ? "0px" : "15px",
                   }}
                 >
                   <Flippy
@@ -113,12 +119,13 @@ export default function Skills() {
                           "url(" + skillsBackgroundImages[index] + ")",
                         backgroundPosition: "top",
                         backgroundSize: "cover",
+                        cursor: "pointer"
                       }}
                     >
                       <div
                         style={{
                           fontFamily: "monospace",
-                          fontSize: "22.3px",
+                          fontSize: xSmallLabel? "10vw" : "22.3px",
                           fontWeight: "500",
                         }}
                       >
@@ -134,6 +141,7 @@ export default function Skills() {
                         backgroundColor: "white",
                         overflow: breakSkillCardsWidth ? "scroll" : "hidden",
                         paddingBottom: "0px",
+                        cursor: "auto"
                       }}
                     >
                       <div
@@ -153,6 +161,7 @@ export default function Skills() {
                         {skills[label].map((skill, index) => {
                           return (
                             <TechIcon
+                              key={index}
                               iconName={skill}
                               padding="10px 14px 15px 14px"
                               iconWidth="50px"
